@@ -1,65 +1,357 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [formSuccess, setFormSuccess] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormSuccess(true);
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* TOP BAR */}
+      <div className="topbar">
+        <div className="wrap">
+          <div className="tb-info">
+            <a href="mailto:kwsociety2014@gmail.com">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
+              kwsociety2014@gmail.com
+            </a>
+            <a href="tel:+923334178699">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+              +92 333 4178 699
+            </a>
+            <a href="#" className="ci-loc">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+              Khurram, Kasur, Pakistan
+            </a>
+          </div>
+          <div className="tb-social">
+            <a href="https://www.facebook.com/KWSociety/" aria-label="Facebook">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" /></svg>
+            </a>
+            <a href="https://www.youtube.com/@aGhaffar702" aria-label="YouTube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z" /></svg>
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+      </div>
+
+      {/* HEADER */}
+      <header id="header" className={isScrolled ? "scrolled" : ""}>
+        <div className="wrap nav">
+          <a href="#top" className="brand" aria-label="Khurram Welfare Society home">
+            <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+            <span className="brand-text">
+              <span className="brand-name">Khurram Welfare Society</span>
+              <span className="brand-sub">Serving Humanity Since 2014</span>
+            </span>
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
+            <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
+            <a href="#focus" onClick={() => setIsMenuOpen(false)}>Projects</a>
+            <a href="#causes" onClick={() => setIsMenuOpen(false)}>Donate</a>
+            <a href="#team" onClick={() => setIsMenuOpen(false)}>Our Team</a>
+            <a href="#involve" onClick={() => setIsMenuOpen(false)}>Get Involved</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+          </nav>
+          <div className="nav-cta">
+            <a href="#contact" className="btn btn-ghost">Volunteer</a>
+            <a href="#causes" className="btn btn-amber">Donate Now <span className="arrow">→</span></a>
+            <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
         </div>
-      </main>
-    </div>
+      </header>
+
+      {/* HERO */}
+      <section className="hero" id="top">
+        <div className="wrap hero-inner">
+          <div className="hero-copy">
+            <span className="eyebrow">Welfare for all — no exceptions</span>
+            <h1>Serving humanity, <em>without difference</em> of creed or caste.</h1>
+            <p className="lead">Khurram Welfare Society brings clean water, education, healthcare, and dignity to underprivileged families across Kasur — and empowers communities to stand on their own.</p>
+            <div className="hero-actions">
+              <a href="#causes" className="btn btn-amber">Donate Now <span className="arrow">→</span></a>
+              <a href="#focus" className="btn btn-ghost">Our Projects</a>
+            </div>
+            <div className="hero-mini">
+              <div><div className="m-num">2014</div><div className="m-lbl">Serving since</div></div>
+              <div><div className="m-num">110<span style={{ color: 'var(--amber)' }}>+</span></div><div className="m-lbl">Projects completed</div></div>
+              <div><div className="m-num">100%</div><div className="m-lbl">Volunteer-led</div></div>
+            </div>
+          </div>
+          <div className="hero-art">
+            <div className="hero-photo">
+              <img src="/WhatsApp%20Image%202025-10-23%20at%2011.12.57_f540042f.jpg" alt="KWS community work" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+            </div>
+            <div className="hero-badge b1">
+              <div className="hb-ic g"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 16.3A5 5 0 1 1 12 8a5 5 0 0 1 5 8.3" /><path d="M12 22V12" /></svg></div>
+              <div><div className="hb-num">45</div><div className="hb-lbl">Water hand pumps</div></div>
+            </div>
+            <div className="hero-badge b2">
+              <div className="hb-ic a"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg></div>
+              <div><div className="hb-num">Education</div><div className="hb-lbl">for every child</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* IMPACT STRIP */}
+      <div className="impact">
+        <div className="wrap">
+          <div className="impact-grid">
+            <div className="impact-item reveal in"><div className="i-num"><span className="countup" data-target="43">43</span></div><div className="i-lbl">Street Lights Installed</div></div>
+            <div className="impact-item reveal in"><div className="i-num"><span className="countup" data-target="45">45</span></div><div className="i-lbl">Water Hand Pumps</div></div>
+            <div className="impact-item reveal in"><div className="i-num"><span className="countup" data-target="2">2</span></div><div className="i-lbl">Water Filtration Plants</div></div>
+            <div className="impact-item reveal in"><div className="i-num"><span className="countup" data-target="20">20</span></div><div className="i-lbl">Social Welfare Projects</div></div>
+          </div>
+        </div>
+      </div>
+
+      {/* ABOUT */}
+      <section id="about">
+        <div className="wrap about-grid">
+          <div className="about-photo reveal in">
+            <img src="/511953349_24746508848284362_7795780151817311534_n.jpg" alt="KWS helping the community" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+            <div className="about-tag">Compassion in action</div>
+          </div>
+          <div className="reveal in">
+            <span className="eyebrow">About the society</span>
+            <h2 className="h-sec">A community built on <em>service and hope.</em></h2>
+            <p className="lead">Khurram Welfare Society is a non-profit dedicated to serving humanity through social welfare, education, and community support. We uplift underprivileged families, promote learning, provide healthcare assistance, and empower people to build a self-reliant future.</p>
+            <div className="about-points">
+              <div className="ap"><div className="ap-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg></div><div><b>For everyone</b><span>No difference of religion, creed or caste.</span></div></div>
+              <div className="ap"><div className="ap-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /></svg></div><div><b>Volunteer-led</b><span>Powered by people who care.</span></div></div>
+              <div className="ap"><div className="ap-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M2 12h20" /></svg></div><div><b>Local &amp; direct</b><span>Every rupee reaches the ground.</span></div></div>
+              <div className="ap"><div className="ap-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></div><div><b>Transparent</b><span>Open about where help goes.</span></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOCUS AREAS */}
+      <section className="focus" id="focus">
+        <div className="wrap">
+          <div className="sec-head center reveal in">
+            <span className="eyebrow" style={{ justifyContent: 'center' }}>What we do</span>
+            <h2 className="h-sec">The areas where we <em>make a difference.</em></h2>
+            <p className="lead" style={{ margin: '0 auto' }}>From a clean glass of water to a child's first classroom — our projects meet people at their point of need.</p>
+          </div>
+          <div className="focus-grid">
+            <div className="fcard reveal in"><div className="fcard-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2s7 7.4 7 12a7 7 0 0 1-14 0c0-4.6 7-12 7-12z" /></svg></div><h3>Clean Water</h3><p>Hand pumps and filtration plants delivering safe drinking water to villages.</p></div>
+            <div className="fcard reveal in"><div className="fcard-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" /></svg></div><h3>Education</h3><p>Supporting schooling, supplies, and opportunity for every child.</p></div>
+            <div className="fcard reveal in"><div className="fcard-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg></div><h3>Health</h3><p>Medical assistance and care for those who cannot afford it.</p></div>
+            <div className="fcard reveal in"><div className="fcard-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v6M12 8a4 4 0 0 1 4 4v8H8v-8a4 4 0 0 1 4-4z" /><circle cx="12" cy="5" r="1" /></svg></div><h3>Street Lights</h3><p>Lighting up streets to keep neighbourhoods safe after dark.</p></div>
+            <div className="fcard reveal in"><div className="fcard-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M20 8v13H4V8" /><path d="M2 3h20l-2 5H4z" /><path d="M10 12h4" /></svg></div><h3>Muqada Work Boxes</h3><p>Community donation boxes that keep local relief running year-round.</p></div>
+            <div className="fcard reveal in"><div className="fcard-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.5-1.5 3-3.3 3-5.5A3.5 3.5 0 0 0 12 6a3.5 3.5 0 0 0-10 2.5C2 10.7 3.5 12.5 5 14l7 7z" /></svg></div><h3>Welfare</h3><p>Rations, marriages, and emergency help for families in hardship.</p></div>
+            <div className="fcard reveal in"><div className="fcard-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3s6 4.5 6 10a6 6 0 0 1-12 0c0-5.5 6-10 6-10z" /></svg></div><h3>Blood Donation</h3><p>Connecting donors with patients in urgent need of blood.</p></div>
+            <div className="fcard reveal in"><div className="fcard-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18M3 12h18" /></svg></div><h3>Sports</h3><p>Encouraging youth through community sports and talent events.</p></div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOUNDER */}
+      <section className="founder">
+        <div className="wrap founder-grid">
+          <div className="founder-photo reveal in">
+            <img src="/founder.jpg" alt="Hafiz Abdul Ghaffar Kamboh, Founder" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+          </div>
+          <div className="reveal in">
+            <span className="eyebrow light">Message of the founder</span>
+            <h2>Hafiz Abdul Ghaffar Kamboh</h2>
+            <div className="f-role">Founder, Khurram Welfare Society</div>
+            <blockquote>True success lies in improving the lives of others and creating opportunity for those in need. Through education, clean water, health, and welfare, we bring positive change to our community and beyond.</blockquote>
+            <p style={{ color: 'rgba(255,255,255,.72)', marginBottom: '24px' }}>I invite everyone to join hands with KWS in this noble journey of service and hope. Together, we can build a brighter, more caring future for all.</p>
+            <div className="f-sign">— Hafiz Abdul Ghaffar</div>
+          </div>
+        </div>
+      </section>
+
+      {/* CAUSES */}
+      <section id="causes">
+        <div className="wrap">
+          <div className="sec-head center reveal in">
+            <span className="eyebrow" style={{ justifyContent: 'center' }}>Give with purpose</span>
+            <h2 className="h-sec">Choose a cause, <em>change a life.</em></h2>
+            <p className="lead" style={{ margin: '0 auto' }}>Every contribution goes directly to families who need it. Pick a cause below and be the reason someone smiles today.</p>
+          </div>
+          <div className="causes-grid">
+            <div className="cause reveal in">
+              <div className="cause-img"><span className="cause-chip">Clean Water</span><img src="/handpump.jpg" alt="Hand pump" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} /></div>
+              <div className="cause-body">
+                <h3>Donate One Hand Pump</h3>
+                <div className="cause-meta"><span className="goal">Goal <b>PKR 55,000</b></span><span className="goal">Raised PKR 0</span></div>
+                <div className="track"><span></span></div>
+                <div className="cause-note">Be the first to fund this pump →</div>
+                <a href="#contact" className="btn btn-green">Donate Now</a>
+              </div>
+            </div>
+            <div className="cause reveal in">
+              <div className="cause-img"><span className="cause-chip">Welfare</span><img src="/welfare.jpg" alt="Monthly rashan" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} /></div>
+              <div className="cause-body">
+                <h3>One Family Monthly Rashan</h3>
+                <div className="cause-meta"><span className="goal">Goal <b>PKR 11,000</b></span><span className="goal">Raised PKR 0</span></div>
+                <div className="track"><span></span></div>
+                <div className="cause-note">Feed a family for a whole month →</div>
+                <a href="#contact" className="btn btn-green">Donate Now</a>
+              </div>
+            </div>
+            <div className="cause reveal in">
+              <div className="cause-img"><span className="cause-chip">Welfare</span><img src="/welfare2.jpg" alt="Sponsor a marriage" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} /></div>
+              <div className="cause-body">
+                <h3>Sponsor One Marriage</h3>
+                <div className="cause-meta"><span className="goal">Goal <b>PKR 50,000</b></span><span className="goal">Raised PKR 0</span></div>
+                <div className="track"><span></span></div>
+                <div className="cause-note">Help a family celebrate with dignity →</div>
+                <a href="#contact" className="btn btn-green">Donate Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GET INVOLVED */}
+      <section className="involve" id="involve">
+        <div className="wrap">
+          <div className="sec-head center reveal in">
+            <span className="eyebrow" style={{ justifyContent: 'center' }}>Get involved</span>
+            <h2 className="h-sec">More ways to <em>make an impact.</em></h2>
+          </div>
+          <div className="involve-grid">
+            <div className="inv reveal in"><div className="inv-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.5-1.5 3-3.3 3-5.5A3.5 3.5 0 0 0 12 6a3.5 3.5 0 0 0-10 2.5C2 10.7 3.5 12.5 5 14l7 7z" /></svg></div><h3>Donate</h3><p>Support our causes with a one-time or monthly gift.</p><a href="#causes">Give now →</a></div>
+            <div className="inv reveal in"><div className="inv-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg></div><h3>Volunteer</h3><p>Give your time and skills to projects on the ground.</p><a href="#contact">Join us →</a></div>
+            <div className="inv reveal in"><div className="inv-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg></div><h3>Membership</h3><p>Become an official member of the society.</p><a href="#contact">Apply →</a></div>
+            <div className="inv reveal in"><div className="inv-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3s6 4.5 6 10a6 6 0 0 1-12 0c0-5.5 6-10 6-10z" /></svg></div><h3>Donate Blood</h3><p>Register as a donor and help save lives locally.</p><a href="#contact">Register →</a></div>
+          </div>
+        </div>
+      </section>
+
+      {/* TEAM */}
+      <section id="team">
+        <div className="wrap">
+          <div className="sec-head center reveal in">
+            <span className="eyebrow" style={{ justifyContent: 'center' }}>The people behind KWS</span>
+            <h2 className="h-sec">Meet our <em>volunteers.</em></h2>
+          </div>
+          <div className="team-grid">
+            <div className="tm reveal in">
+              <div className="tm-img"><img src="/faisal.jpg" alt="Faisal Naveed" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} /></div>
+              <div className="tm-body"><div className="tm-role">Co-Founder</div><h3>Faisal Naveed</h3>
+                <div className="tm-social"><a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" /></svg></a><a href="#" aria-label="Phone"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg></a></div>
+              </div>
+            </div>
+            <div className="tm reveal in">
+              <div className="tm-img"><img src="/asad.png" alt="Asad Waqas" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} /></div>
+              <div className="tm-body"><div className="tm-role">General Secretary</div><h3>Asad Waqas</h3>
+                <div className="tm-social"><a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" /></svg></a><a href="#" aria-label="Phone"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg></a></div>
+              </div>
+            </div>
+            <div className="tm reveal in">
+              <div className="tm-img"><img src="/waqas.jpg" alt="Ahmad Waqas" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} /></div>
+              <div className="tm-body"><div className="tm-role">Education Lead</div><h3>Ahmad Waqas</h3>
+                <div className="tm-social"><a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" /></svg></a><a href="#" aria-label="Phone"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ZAKAT CTA */}
+      <section style={{ paddingBottom: '104px' }}>
+        <div className="wrap">
+          <div className="zakat reveal in">
+            <span className="eyebrow">Fulfil your obligation</span>
+            <h2>Donate your Zakat to those who need it most.</h2>
+            <p>Your Zakat is distributed directly to needy families and social welfare projects — with care, transparency, and dignity.</p>
+            <div className="zakat-actions">
+              <a href="#contact" className="btn btn-amber">Donate Zakat <span className="arrow">→</span></a>
+              <a href="#about" className="btn btn-ghost on-dark">How it's used</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" style={{ background: 'var(--cream-2)' }}>
+        <div className="wrap contact-grid">
+          <div className="reveal in">
+            <span className="eyebrow">Get in touch</span>
+            <h2 className="h-sec">We'd love to <em>hear from you.</em></h2>
+            <p className="lead">Whether you want to donate, volunteer, or partner with us — reach out and our team will get back to you soon.</p>
+            <div className="ci-list">
+              <div className="ci"><div className="ci-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg></div><div><div className="k">Address</div><div className="v">Village Khurram Hithar, Tehsil &amp; Dist. Kasur, Pakistan</div></div></div>
+              <div className="ci"><div className="ci-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg></div><div><div className="k">Phone</div><div className="v">+92 333 4178 699</div></div></div>
+              <div className="ci"><div className="ci-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg></div><div><div className="k">Email</div><div className="v">kwsociety2014@gmail.com</div></div></div>
+            </div>
+          </div>
+          <div className="form-card reveal in">
+            {!formSuccess ? (
+              <form id="contactForm" onSubmit={handleFormSubmit} noValidate>
+                <div className="frow">
+                  <div className="field"><label htmlFor="cf-name">Your name</label><input id="cf-name" type="text" placeholder="Full name" required /></div>
+                  <div className="field"><label htmlFor="cf-email">Email</label><input id="cf-email" type="email" placeholder="you@email.com" required /></div>
+                </div>
+                <div className="field"><label htmlFor="cf-subject">I want to</label>
+                  <select id="cf-subject" required defaultValue="">
+                    <option value="" disabled>Select an option</option>
+                    <option>Donate to a cause</option><option>Volunteer with KWS</option><option>Apply for membership</option><option>Donate blood</option><option>Something else</option>
+                  </select>
+                </div>
+                <div className="field"><label htmlFor="cf-msg">Message</label><textarea id="cf-msg" placeholder="How would you like to help?" required></textarea></div>
+                <button type="submit" className="btn btn-amber">Send Message <span className="arrow">→</span></button>
+              </form>
+            ) : (
+              <div className="form-success show" id="formSuccess">
+                <div className="check"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></div>
+                <h3>Thank you!</h3>
+                <p>Your message has been received. Our team will reach out to you soon, InshaAllah.</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer>
+        <div className="wrap">
+          <div className="foot-top">
+            <div className="foot-brand">
+              <a href="#top" className="brand">
+                <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+                <span className="brand-text">
+                  <span className="brand-name" style={{ color: '#fff' }}>Khurram Welfare Society</span>
+                  <span className="brand-sub">Serving Humanity Since 2014</span>
+                </span>
+              </a>
+              <p>A non-profit serving humanity through clean water, education, health, and welfare — without difference of religion, creed, or caste.</p>
+              <div className="foot-social">
+                <a href="https://www.facebook.com/KWSociety/" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" /></svg></a>
+                <a href="https://www.youtube.com/@aGhaffar702" aria-label="YouTube"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z" /></svg></a>
+              </div>
+            </div>
+            <div className="foot-col"><h4>Our Work</h4><a href="#focus">Clean Water</a><a href="#focus">Education</a><a href="#focus">Health</a><a href="#focus">Welfare</a><a href="#focus">Blood Donation</a></div>
+            <div className="foot-col"><h4>Get Involved</h4><a href="#causes">Donate</a><a href="#contact">Volunteer</a><a href="#contact">Membership</a><a href="#team">Our Team</a></div>
+            <div className="foot-col"><h4>Contact</h4><a href="#">Khurram, Kasur, Pakistan</a><a href="tel:+923334178699">+92 333 4178 699</a><a href="mailto:kwsociety2014@gmail.com">kwsociety2014@gmail.com</a></div>
+          </div>
+          <div className="foot-bottom">© 2026 Khurram Welfare Society. All rights reserved. · Built with compassion.</div>
+        </div>
+      </footer>
+    </>
   );
 }
