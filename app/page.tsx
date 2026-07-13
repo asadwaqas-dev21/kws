@@ -90,7 +90,8 @@ export default function Home() {
             <h1>Serving humanity, <em>without difference</em> of creed or caste.</h1>
             <p className="lead">Khurram Welfare Society brings clean water, education, healthcare, and dignity to underprivileged families across Kasur — and empowers communities to stand on their own.</p>
             <div className="hero-actions">
-              <a href="#causes" className="btn btn-amber">Donate Now <span className="arrow">→</span></a>
+              <a href="#causes" className="btn btn-amber hero-donate-btn">Donate Now <span className="arrow">→</span></a>
+              <Link href="/membership" className="btn btn-amber hero-member-btn">Apply for membership <span className="arrow">→</span></Link>
               <a href="#focus" className="btn btn-ghost">Our Projects</a>
             </div>
             <div className="hero-mini">

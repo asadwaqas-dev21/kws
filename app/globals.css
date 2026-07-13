@@ -407,6 +407,9 @@
     flex-wrap: wrap;
   }
 
+  .hero-member-btn { display: none; }
+
+
   .hero-mini {
     display: flex;
     gap: 30px;
@@ -1949,6 +1952,8 @@
   @media(max-width: 600px) {
     .brand-name { font-size: 1.05rem; }
     .brand-sub { display: none; }
+    .hero-donate-btn { display: none !important; }
+    .hero-member-btn { display: inline-flex !important; }
   }
 
   /* Team page responsive */

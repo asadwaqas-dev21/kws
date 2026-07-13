@@ -94,8 +94,8 @@ export default function Membership() {
                 <img src="/kws.png" alt="KWS Logo" style={{ width: "100%", filter: "grayscale(100%)", opacity: 0.9 }} />
               </div>
               <div style={{ textAlign: "center", flex: 1, padding: "0 20px" }}>
-                <h1 style={{ fontSize: "3rem", fontWeight: "bold", margin: "0 0 10px 0", letterSpacing: "-1px" }}>خرم ویلفیئر سوسائٹی</h1>
-                <h2 style={{ fontSize: "1.6rem", margin: "0 0 15px 0" }}>خرم ہٹھاڑ (قصور)</h2>
+                <h1 className="mem-h1" style={{ fontSize: "3rem", fontWeight: "bold", margin: "0 0 10px 0", letterSpacing: "-1px" }}>خرم ویلفیئر سوسائٹی</h1>
+                <h2 className="mem-h2" style={{ fontSize: "1.6rem", margin: "0 0 15px 0" }}>خرم ہٹھاڑ (قصور)</h2>
                 
                 <div className="mem-header-links" style={{ display: "flex", justifyContent: "center", gap: 20, fontSize: "1rem", direction: "ltr", marginTop: 10 }}>
                   <span><b dir="rtl">ای میل:</b> kwsociety1@yahoo.com</span>
@@ -194,7 +194,7 @@ export default function Membership() {
               <li>میں ویلفیئر کے کاموں میں اپنے نام یا شہرت کا تقاضا نہیں کروں گا/گی۔</li>
               <li>میں سوسائٹی میں خود سے کوئی بھی عہدہ طلب نہیں کروں گا/گی۔</li>
               <li>سوسائٹی کی ممبرشپ لینے میں میرا کوئی بھی ذاتی مفاد یا لالچ نہیں ہے۔ یہ خالصتاً اللہ کی رضا کے لیے میرا ذاتی فیصلہ ہے۔</li>
-              <li style={{ display: "flex", alignItems: "center" }}>
+              <li style={{ lineHeight: "2.5" }}>
                 میں ہر ماہ سوسائٹی کو <input type="text" style={{ width: 120, margin: "0 10px", border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.2rem", textAlign: "center" }} /> روپے بطور فنڈ دیا کروں گا/گی۔
               </li>
             </ol>
@@ -217,10 +217,10 @@ export default function Membership() {
             {/* Office Use */}
             <div style={{ marginTop: "40px", paddingTop: "40px" }}>
               <p style={{ fontWeight: "bold", fontSize: "1.2rem" }}>جاری کردہ:</p>
-              <div style={{ display: "flex", alignItems: "flex-end", marginTop: 20, fontSize: "1.2rem" }}>
-                <span style={{ whiteSpace: "nowrap" }}>اس فارم کو اجلاس منعقدہ</span>
-                <input type="text" style={{ flex: 1, margin: "0 15px", border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none" }} />
-                <span style={{ whiteSpace: "nowrap" }}>کو زیر غور لایا گیا اور یہ فیصلہ کیا گیا کہ</span>
+              <div style={{ marginTop: 20, fontSize: "1.2rem", lineHeight: "2.5" }}>
+                <span>اس فارم کو اجلاس منعقدہ</span>
+                <input type="text" style={{ width: "200px", maxWidth: "100%", margin: "0 10px", border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", textAlign: "center" }} />
+                <span>کو زیر غور لایا گیا اور یہ فیصلہ کیا گیا کہ</span>
               </div>
               <div style={{ marginTop: 30 }}>
                 <input type="text" style={{ width: "100%", border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.2rem" }} />
@@ -288,20 +288,24 @@ export default function Membership() {
       <style>{`
         @media(max-width: 860px) {
           .tp-about-grid { grid-template-columns: 1fr !important; }
+          .mem-grid { grid-template-columns: 1fr !important; }
         }
         @media(max-width: 650px) {
           .mem-header { flex-direction: column !important; align-items: center !important; text-align: center !important; }
           .mem-header > div { margin-bottom: 15px !important; }
           .mem-header-links { flex-direction: column !important; gap: 5px !important; }
+          .mem-h1 { font-size: 2.2rem !important; }
+          .mem-h2 { font-size: 1.3rem !important; }
           .mem-title { font-size: 1.8rem !important; }
           .mem-subtitle { font-size: 1rem !important; }
-          .mem-grid { grid-template-columns: 1fr !important; gap: 15px !important; }
+          .mem-grid { gap: 20px !important; }
           .mem-signs, .mem-office { grid-template-columns: 1fr !important; gap: 30px !important; margin-top: 30px !important; }
           .mem-sign-spacer { display: none !important; }
           .mem-form-container { padding: 15px !important; border-width: 2px !important; }
           .mem-form-inner { padding: 15px !important; border-width: 1px !important; }
-          .mem-grid > div { flex-wrap: wrap !important; }
-          .mem-grid label { margin-bottom: 5px !important; font-size: 1.1rem !important; }
+          .mem-grid > div { flex-direction: column !important; align-items: flex-start !important; gap: 8px; }
+          .mem-grid input { width: 100% !important; border-bottom: 1px solid #666 !important; }
+          .mem-grid label { margin-bottom: 0 !important; font-size: 1.1rem !important; }
         }
       `}</style>
     </div>
