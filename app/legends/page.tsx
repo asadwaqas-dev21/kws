@@ -62,7 +62,6 @@ export default function Legends() {
             <Link href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </nav>
           <div className="nav-cta">
-            <Link href="/#contact" className="btn btn-ghost">Volunteer</Link>
             <Link href="/#causes" className="btn btn-amber">Donate Now <span className="arrow">→</span></Link>
             <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
               <span></span><span></span><span></span>

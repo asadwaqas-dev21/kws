@@ -70,7 +70,6 @@ export default function Home() {
             <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
           </nav>
           <div className="nav-cta">
-            <a href="#contact" className="btn btn-ghost">Volunteer</a>
             <a href="#causes" className="btn btn-amber">Donate Now <span className="arrow">→</span></a>
             <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
               <span></span><span></span><span></span>
