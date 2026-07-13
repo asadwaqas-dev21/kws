@@ -62,9 +62,8 @@ export default function Home() {
             </span>
           </a>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
-            <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
             <a href="#focus" onClick={() => setIsMenuOpen(false)}>Projects</a>
-            <a href="#team" onClick={() => setIsMenuOpen(false)}>Our Team</a>
+            <a href="/team" onClick={() => setIsMenuOpen(false)}>About</a>
             <a href="/legends" onClick={() => setIsMenuOpen(false)}>Legends</a>
             <a href="/directory" onClick={() => setIsMenuOpen(false)}>Directory</a>
             <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>

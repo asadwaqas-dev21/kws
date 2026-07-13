@@ -206,9 +206,8 @@ export default function Directory() {
             </span>
           </Link>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
-            <Link href="/#about" onClick={() => setIsMenuOpen(false)}>About</Link>
             <Link href="/#focus" onClick={() => setIsMenuOpen(false)}>Projects</Link>
-            <Link href="/#team" onClick={() => setIsMenuOpen(false)}>Our Team</Link>
+            <Link href="/team" onClick={() => setIsMenuOpen(false)}>About</Link>
             <Link href="/legends" onClick={() => setIsMenuOpen(false)}>Legends</Link>
             <Link href="/directory" onClick={() => setIsMenuOpen(false)}>Directory</Link>
             <Link href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
