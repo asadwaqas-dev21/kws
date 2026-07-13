@@ -1,14 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { sendContactMessage } from "../actions";
 
 export default function Contact() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20);
@@ -16,13 +19,18 @@ export default function Contact() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormStatus("submitting");
-    setTimeout(() => {
-      setFormStatus("success");
-      setTimeout(() => setFormStatus("idle"), 5000);
-    }, 1200);
+  const handleFormSubmit = (formData: FormData) => {
+    startTransition(async () => {
+      setFormStatus("submitting");
+      const result = await sendContactMessage(formData);
+      if (result.success) {
+        setFormStatus("success");
+        setTimeout(() => setFormStatus("idle"), 5000);
+      } else {
+        setFormStatus("error");
+        setErrorMessage(result.message);
+      }
+    });
   };
 
   return (
@@ -177,35 +185,37 @@ export default function Contact() {
                   <p>Thank you for reaching out. We will get back to you shortly.</p>
                 </div>
               ) : (
-                <form onSubmit={handleFormSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                <form action={handleFormSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }} className="form-row">
                     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                       <label style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--ink)" }}>First Name</label>
-                      <input required type="text" placeholder="John" style={{ padding: "14px", borderRadius: "8px", border: "1px solid #ddd", fontSize: "1rem", outline: "none", transition: "border-color .2s" }} onFocus={(e) => e.target.style.borderColor = 'var(--green)'} onBlur={(e) => e.target.style.borderColor = '#ddd'} />
+                      <input required type="text" name="firstName" placeholder="John" style={{ padding: "14px", borderRadius: "8px", border: "1px solid #ddd", fontSize: "1rem", outline: "none", transition: "border-color .2s" }} onFocus={(e) => e.target.style.borderColor = 'var(--green)'} onBlur={(e) => e.target.style.borderColor = '#ddd'} />
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                       <label style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--ink)" }}>Last Name</label>
-                      <input required type="text" placeholder="Doe" style={{ padding: "14px", borderRadius: "8px", border: "1px solid #ddd", fontSize: "1rem", outline: "none", transition: "border-color .2s" }} onFocus={(e) => e.target.style.borderColor = 'var(--green)'} onBlur={(e) => e.target.style.borderColor = '#ddd'} />
+                      <input required type="text" name="lastName" placeholder="Doe" style={{ padding: "14px", borderRadius: "8px", border: "1px solid #ddd", fontSize: "1rem", outline: "none", transition: "border-color .2s" }} onFocus={(e) => e.target.style.borderColor = 'var(--green)'} onBlur={(e) => e.target.style.borderColor = '#ddd'} />
                     </div>
                   </div>
                   
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                     <label style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--ink)" }}>Email Address</label>
-                    <input required type="email" placeholder="john@example.com" style={{ padding: "14px", borderRadius: "8px", border: "1px solid #ddd", fontSize: "1rem", outline: "none", transition: "border-color .2s" }} onFocus={(e) => e.target.style.borderColor = 'var(--green)'} onBlur={(e) => e.target.style.borderColor = '#ddd'} />
+                    <input required type="email" name="email" placeholder="john@example.com" style={{ padding: "14px", borderRadius: "8px", border: "1px solid #ddd", fontSize: "1rem", outline: "none", transition: "border-color .2s" }} onFocus={(e) => e.target.style.borderColor = 'var(--green)'} onBlur={(e) => e.target.style.borderColor = '#ddd'} />
                   </div>
 
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                     <label style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--ink)" }}>Subject</label>
-                    <input required type="text" placeholder="How can we help?" style={{ padding: "14px", borderRadius: "8px", border: "1px solid #ddd", fontSize: "1rem", outline: "none", transition: "border-color .2s" }} onFocus={(e) => e.target.style.borderColor = 'var(--green)'} onBlur={(e) => e.target.style.borderColor = '#ddd'} />
+                    <input required type="text" name="subject" placeholder="How can we help?" style={{ padding: "14px", borderRadius: "8px", border: "1px solid #ddd", fontSize: "1rem", outline: "none", transition: "border-color .2s" }} onFocus={(e) => e.target.style.borderColor = 'var(--green)'} onBlur={(e) => e.target.style.borderColor = '#ddd'} />
                   </div>
 
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                     <label style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--ink)" }}>Message</label>
-                    <textarea required placeholder="Write your message here..." rows={5} style={{ padding: "14px", borderRadius: "8px", border: "1px solid #ddd", fontSize: "1rem", outline: "none", resize: "vertical", transition: "border-color .2s" }} onFocus={(e) => e.target.style.borderColor = 'var(--green)'} onBlur={(e) => e.target.style.borderColor = '#ddd'}></textarea>
+                    <textarea required name="message" placeholder="Write your message here..." rows={5} style={{ padding: "14px", borderRadius: "8px", border: "1px solid #ddd", fontSize: "1rem", outline: "none", resize: "vertical", transition: "border-color .2s" }} onFocus={(e) => e.target.style.borderColor = 'var(--green)'} onBlur={(e) => e.target.style.borderColor = '#ddd'}></textarea>
                   </div>
 
-                  <button type="submit" disabled={formStatus === "submitting"} className="btn btn-green" style={{ width: "100%", justifyContent: "center", marginTop: "10px", padding: "16px", fontSize: "1.05rem" }}>
-                    {formStatus === "submitting" ? "Sending..." : "Send Message"}
+                  {formStatus === "error" && <div style={{ color: "red", fontSize: "0.95rem" }}>{errorMessage}</div>}
+
+                  <button type="submit" disabled={isPending} className="btn btn-green" style={{ width: "100%", justifyContent: "center", marginTop: "10px", padding: "16px", fontSize: "1.05rem" }}>
+                    {isPending ? "Sending..." : "Send Message"}
                   </button>
                 </form>
               )}

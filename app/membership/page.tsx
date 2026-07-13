@@ -1,13 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { sendMembershipApplication } from "../actions";
 
 export default function Membership() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const [message, setMessage] = useState("");
   const pathname = usePathname();
+
+  const handleSubmit = (formData: FormData) => {
+    startTransition(async () => {
+      setMessage("Sending application...");
+      const result = await sendMembershipApplication(formData);
+      setMessage(result.message);
+    });
+  };
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20);
@@ -77,7 +88,8 @@ export default function Membership() {
       <main style={{ flexGrow: 1, padding: "60px 20px" }}>
         
         {/* Form Container */}
-        <div className="mem-form-container" style={{ 
+        {/* Form Container */}
+        <form action={handleSubmit} className="mem-form-container" style={{ 
           maxWidth: 900, 
           margin: "0 auto", 
           background: "#fff", 
@@ -120,19 +132,19 @@ export default function Membership() {
               {/* Name */}
               <div style={{ display: "flex", alignItems: "flex-end" }}>
                 <label style={{ whiteSpace: "nowrap", marginLeft: 15, fontWeight: "bold", fontSize: "1.3rem" }}>نام</label>
-                <input type="text" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px" }} />
+                <input type="text" name="name" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px" }} required />
               </div>
               {/* Father Name */}
               <div style={{ display: "flex", alignItems: "flex-end" }}>
                 <label style={{ whiteSpace: "nowrap", marginLeft: 15, fontWeight: "bold", fontSize: "1.3rem" }}>ولدیت</label>
-                <input type="text" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px" }} />
+                <input type="text" name="fatherName" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px" }} required />
               </div>
 
               {/* CNIC */}
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <div style={{ display: "flex", alignItems: "flex-end" }}>
                   <label style={{ whiteSpace: "nowrap", marginLeft: 15, fontWeight: "bold", fontSize: "1.3rem" }}>شناختی کارڈ نمبر</label>
-                  <input type="text" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px", direction: "ltr", textAlign: "right" }} />
+                  <input type="text" name="cnic" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px", direction: "ltr", textAlign: "right" }} required />
                 </div>
                 <span style={{ fontSize: "0.85rem", color: "#444", marginTop: 6 }}>اگر آپ کا شناختی کارڈ نہیں بنا تو والد کے شناختی کارڈ کا نمبر لکھیں اور فوٹو کاپی ساتھ لگائیں</span>
               </div>
@@ -140,46 +152,46 @@ export default function Membership() {
               {/* Email */}
               <div style={{ display: "flex", alignItems: "flex-end", alignSelf: "flex-start" }}>
                 <label style={{ whiteSpace: "nowrap", marginLeft: 15, fontWeight: "bold", fontSize: "1.3rem" }}>ای میل ایڈریس</label>
-                <input type="email" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px", direction: "ltr", textAlign: "right" }} />
+                <input type="email" name="email" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px", direction: "ltr", textAlign: "right" }} />
               </div>
 
               {/* Address (Full width) */}
               <div style={{ display: "flex", alignItems: "flex-end", gridColumn: "1 / -1" }}>
                 <label style={{ whiteSpace: "nowrap", marginLeft: 15, fontWeight: "bold", fontSize: "1.3rem" }}>پتہ</label>
-                <input type="text" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px" }} />
+                <input type="text" name="address" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px" }} required />
               </div>
 
               {/* DOB */}
               <div style={{ display: "flex", alignItems: "flex-end" }}>
                 <label style={{ whiteSpace: "nowrap", marginLeft: 15, fontWeight: "bold", fontSize: "1.3rem" }}>تاریخ پیدائش</label>
-                <input type="text" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px" }} />
+                <input type="text" name="dob" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px" }} required />
               </div>
               {/* Age */}
               <div style={{ display: "flex", alignItems: "flex-end" }}>
                 <label style={{ whiteSpace: "nowrap", marginLeft: 15, fontWeight: "bold", fontSize: "1.3rem" }}>عمر</label>
-                <input type="text" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px" }} />
+                <input type="text" name="age" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px" }} required />
               </div>
 
               {/* Phone */}
               <div style={{ display: "flex", alignItems: "flex-end" }}>
                 <label style={{ whiteSpace: "nowrap", marginLeft: 15, fontWeight: "bold", fontSize: "1.3rem" }}>فون نمبر</label>
-                <input type="text" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px", direction: "ltr", textAlign: "right" }} />
+                <input type="text" name="phone" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px", direction: "ltr", textAlign: "right" }} required />
               </div>
               {/* Blood Group */}
               <div style={{ display: "flex", alignItems: "flex-end" }}>
                 <label style={{ whiteSpace: "nowrap", marginLeft: 15, fontWeight: "bold", fontSize: "1.3rem" }}>خون کا گروپ</label>
-                <input type="text" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px", direction: "ltr", textAlign: "right" }} />
+                <input type="text" name="bloodGroup" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px", direction: "ltr", textAlign: "right" }} />
               </div>
 
               {/* Education */}
               <div style={{ display: "flex", alignItems: "flex-end" }}>
                 <label style={{ whiteSpace: "nowrap", marginLeft: 15, fontWeight: "bold", fontSize: "1.3rem" }}>تعلیمی قابلیت</label>
-                <input type="text" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px" }} />
+                <input type="text" name="education" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px" }} required />
               </div>
               {/* Profession */}
               <div style={{ display: "flex", alignItems: "flex-end" }}>
                 <label style={{ whiteSpace: "nowrap", marginLeft: 15, fontWeight: "bold", fontSize: "1.3rem" }}>پیشہ</label>
-                <input type="text" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px" }} />
+                <input type="text" name="profession" style={{ flex: 1, border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.3rem", padding: "0 5px" }} />
               </div>
             </div>
 
@@ -195,7 +207,7 @@ export default function Membership() {
               <li>میں سوسائٹی میں خود سے کوئی بھی عہدہ طلب نہیں کروں گا/گی۔</li>
               <li>سوسائٹی کی ممبرشپ لینے میں میرا کوئی بھی ذاتی مفاد یا لالچ نہیں ہے۔ یہ خالصتاً اللہ کی رضا کے لیے میرا ذاتی فیصلہ ہے۔</li>
               <li style={{ lineHeight: "2.5" }}>
-                میں ہر ماہ سوسائٹی کو <input type="text" style={{ width: 120, margin: "0 10px", border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.2rem", textAlign: "center" }} /> روپے بطور فنڈ دیا کروں گا/گی۔
+                میں ہر ماہ سوسائٹی کو <input type="text" name="monthlyFund" style={{ width: 120, margin: "0 10px", border: "none", borderBottom: "2px dashed #666", background: "transparent", outline: "none", fontSize: "1.2rem", textAlign: "center" }} required /> روپے بطور فنڈ دیا کروں گا/گی۔
               </li>
             </ol>
 
@@ -248,12 +260,13 @@ export default function Membership() {
             
           </div>
           
-          <div style={{ marginTop: 40, display: "flex", justifyContent: "center" }}>
-            <button className="btn btn-amber" style={{ padding: "16px 40px", fontSize: "1.1rem" }} onClick={(e) => { e.preventDefault(); alert("Form submitted successfully!"); }}>
-              Submit Application
+          <div style={{ marginTop: 40, display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <button type="submit" className="btn btn-amber" style={{ padding: "16px 40px", fontSize: "1.1rem" }} disabled={isPending}>
+              {isPending ? "Sending..." : "Submit Application"}
             </button>
+            {message && <div style={{ marginTop: 20, fontSize: "1.1rem", color: message.includes("success") ? "green" : "red", fontWeight: "bold" }}>{message}</div>}
           </div>
-        </div>
+        </form>
 
       </main>
 

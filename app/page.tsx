@@ -1,13 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { sendContactMessage } from "./actions";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
+  const [formError, setFormError] = useState("");
+  const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -19,9 +22,15 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormSuccess(true);
+  const handleFormSubmit = (formData: FormData) => {
+    startTransition(async () => {
+      const result = await sendContactMessage(formData);
+      if (result.success) {
+        setFormSuccess(true);
+      } else {
+        setFormError(result.message);
+      }
+    });
   };
 
   return (
@@ -306,19 +315,20 @@ export default function Home() {
           </div>
           <div className="form-card reveal in">
             {!formSuccess ? (
-              <form id="contactForm" onSubmit={handleFormSubmit} noValidate>
+              <form id="contactForm" action={handleFormSubmit}>
                 <div className="frow">
-                  <div className="field"><label htmlFor="cf-name">Your name</label><input id="cf-name" type="text" placeholder="Full name" required /></div>
-                  <div className="field"><label htmlFor="cf-email">Email</label><input id="cf-email" type="email" placeholder="you@email.com" required /></div>
+                  <div className="field"><label htmlFor="cf-name">Your name</label><input id="cf-name" name="firstName" type="text" placeholder="Full name" required /></div>
+                  <div className="field"><label htmlFor="cf-email">Email</label><input id="cf-email" name="email" type="email" placeholder="you@email.com" required /></div>
                 </div>
                 <div className="field"><label htmlFor="cf-subject">I want to</label>
-                  <select id="cf-subject" required defaultValue="">
+                  <select id="cf-subject" name="subject" required defaultValue="">
                     <option value="" disabled>Select an option</option>
                     <option>Donate to a cause</option><option>Volunteer with KWS</option><option>Apply for membership</option><option>Donate blood</option><option>Something else</option>
                   </select>
                 </div>
-                <div className="field"><label htmlFor="cf-msg">Message</label><textarea id="cf-msg" placeholder="How would you like to help?" required></textarea></div>
-                <button type="submit" className="btn btn-amber">Send Message <span className="arrow">→</span></button>
+                <div className="field"><label htmlFor="cf-msg">Message</label><textarea id="cf-msg" name="message" placeholder="How would you like to help?" required></textarea></div>
+                {formError && <div style={{ color: "#d9534f", marginBottom: "15px", fontSize: "0.95rem", fontWeight: "bold" }}>{formError}</div>}
+                <button type="submit" disabled={isPending} className="btn btn-amber">{isPending ? "Sending..." : "Send Message"} <span className="arrow">→</span></button>
               </form>
             ) : (
               <div className="form-success show" id="formSuccess">
