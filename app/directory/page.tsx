@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 // Village Directory — sourced from 11-village_directory.xlsx-2026-07-11.csv
 const directoryData = [
@@ -146,6 +147,7 @@ const directoryData = [
 export default function Directory() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
@@ -206,14 +208,16 @@ export default function Directory() {
             </span>
           </Link>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
-            <Link href="/#focus" onClick={() => setIsMenuOpen(false)}>Projects</Link>
-            <Link href="/team" onClick={() => setIsMenuOpen(false)}>About</Link>
-            <Link href="/legends" onClick={() => setIsMenuOpen(false)}>Legends</Link>
-            <Link href="/directory" onClick={() => setIsMenuOpen(false)}>Directory</Link>
-            <Link href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+            <Link href="/" className={pathname === "/" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Home</Link>
+            <Link href="/projects" className={pathname === "/projects" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Projects</Link>
+            <Link href="/team" className={pathname === "/team" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>About</Link>
+            <Link href="/sports" className={pathname === "/sports" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Sports</Link>
+            <Link href="/legends" className={pathname === "/legends" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Legends</Link>
+            <Link href="/directory" className={pathname === "/directory" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Directory</Link>
+            <Link href="/contact" className={pathname === "/contact" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </nav>
           <div className="nav-cta">
-            <Link href="/#causes" className="btn btn-amber">Donate Now <span className="arrow">→</span></Link>
+            <Link href="/membership" className="btn btn-amber">Apply for membership <span className="arrow">→</span></Link>
             <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
               <span></span><span></span><span></span>
             </button>

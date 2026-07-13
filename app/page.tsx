@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => {
@@ -62,14 +65,16 @@ export default function Home() {
             </span>
           </a>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
-            <a href="#focus" onClick={() => setIsMenuOpen(false)}>Projects</a>
-            <a href="/team" onClick={() => setIsMenuOpen(false)}>About</a>
-            <a href="/legends" onClick={() => setIsMenuOpen(false)}>Legends</a>
-            <a href="/directory" onClick={() => setIsMenuOpen(false)}>Directory</a>
-            <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+            <Link href="/" className={pathname === "/" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Home</Link>
+            <Link href="/projects" className={pathname === "/projects" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Projects</Link>
+            <a href="/team" className={pathname === "/team" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>About</a>
+            <Link href="/sports" className={pathname === "/sports" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Sports</Link>
+            <a href="/legends" className={pathname === "/legends" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Legends</a>
+            <a href="/directory" className={pathname === "/directory" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Directory</a>
+            <Link href="/contact" className={pathname === "/contact" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </nav>
           <div className="nav-cta">
-            <a href="#causes" className="btn btn-amber">Donate Now <span className="arrow">→</span></a>
+            <Link href="/membership" className="btn btn-amber">Apply for membership <span className="arrow">→</span></Link>
             <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
               <span></span><span></span><span></span>
             </button>
