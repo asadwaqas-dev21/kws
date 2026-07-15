@@ -187,7 +187,7 @@ export default function Sports() {
                 <div style={{ width: "80px", height: "80px", borderRadius: "50%", background: "rgba(76,175,136,.1)", color: "var(--green)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
                 </div>
-                <h3 style={{ fontSize: "1.5rem", marginBottom: "15px" }}>Cricket</h3>
+                <h3 style={{ fontSize: "1.5rem", marginBottom: "15px" }}>Volly Ball</h3>
                 <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>Preserving our cultural heritage. We sponsor local Kabaddi matches and support athletes with nutrition and training gear to compete at higher levels.</p>
               </div>
 
@@ -196,7 +196,7 @@ export default function Sports() {
                 <div style={{ width: "80px", height: "80px", borderRadius: "50%", background: "rgba(42,67,101,.1)", color: "#2A4365", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg>
                 </div>
-                <h3 style={{ fontSize: "1.5rem", marginBottom: "15px" }}>Cricket</h3>
+                <h3 style={{ fontSize: "1.5rem", marginBottom: "15px" }}>Badminton</h3>
                 <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>Growing the beautiful game in Kasur. We provide footballs, goal nets, and organize local league matches to keep the youth engaged in team sports.</p>
               </div>
 
