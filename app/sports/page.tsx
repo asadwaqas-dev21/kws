@@ -209,15 +209,15 @@ export default function Sports() {
           <div className="wrap">
             <div className="sec-head center">
               <span className="eyebrow" style={{ justifyContent: "center" }}>Our Stars</span>
-              <h2 className="h-sec">Local <em>Sports Legends.</em></h2>
+              <h2 className="h-sec"><em>Sports Legends.</em></h2>
               <p className="lead" style={{ margin: "0 auto", maxWidth: "600px" }}>Celebrating the outstanding athletes who have brought pride to Khurram Hithar through their dedication to sports.</p>
             </div>
 
             <div className="legends-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: "20px", marginTop: "40px" }}>
               {/* Player 1 */}
               <div style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
-                <div style={{ height: "160px", background: "#E2E8F0", display: "flex", alignItems: "center", justifyContent: "center", color: "#94A3B8" }}>
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+                <div style={{ height: "160px", overflow: "hidden" }}>
+                  <img src="/Nadeem ND.png" alt="M Nadeem ND" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
                 </div>
                 <div style={{ padding: "12px 10px" }}>
                   <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>M Nadeem ND</h3>
@@ -227,8 +227,8 @@ export default function Sports() {
 
               {/* Player 2 */}
               <div style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
-                <div style={{ height: "160px", background: "#E2E8F0", display: "flex", alignItems: "center", justifyContent: "center", color: "#94A3B8" }}>
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+                <div style={{ height: "160px", overflow: "hidden" }}>
+                  <img src="/usman tufail.png" alt="Usman Tufail" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
                 </div>
                 <div style={{ padding: "12px 10px" }}>
                   <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>Usman Tufail</h3>
@@ -238,8 +238,8 @@ export default function Sports() {
 
               {/* Player 3 */}
               <div style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
-                <div style={{ height: "160px", background: "#E2E8F0", display: "flex", alignItems: "center", justifyContent: "center", color: "#94A3B8" }}>
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+                <div style={{ height: "160px", overflow: "hidden" }}>
+                  <img src="/ashfaq.png" alt="Ashfaq Aslam" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
                 </div>
                 <div style={{ padding: "12px 10px" }}>
                   <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>Ashfaq Aslam</h3>
@@ -249,11 +249,44 @@ export default function Sports() {
 
               {/* Player 4 */}
               <div style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
-                <div style={{ height: "160px", background: "#E2E8F0", display: "flex", alignItems: "center", justifyContent: "center", color: "#94A3B8" }}>
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+                <div style={{ height: "160px", overflow: "hidden" }}>
+                  <img src="/farakh sohail.png" alt="Farakh Sohail Rabbani" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
                 </div>
                 <div style={{ padding: "12px 10px" }}>
-                  <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>Mian Tahir</h3>
+                  <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>Farakh Sohail Rabbani</h3>
+                  <div style={{ color: "var(--pine)", fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 }}>Cricket</div>
+                </div>
+              </div>
+
+              {/* Player 5 */}
+              <div style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
+                <div style={{ height: "160px", overflow: "hidden" }}>
+                  <img src="/ahmad waqas.png" alt="Ahmad Waqas" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+                </div>
+                <div style={{ padding: "12px 10px" }}>
+                  <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>Ahmad Waqas</h3>
+                  <div style={{ color: "var(--amber)", fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 }}>Cricket</div>
+                </div>
+              </div>
+
+              {/* Player 6 */}
+              <div style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
+                <div style={{ height: "160px", overflow: "hidden" }}>
+                  <img src="/masab.png" alt="Masab" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+                </div>
+                <div style={{ padding: "12px 10px" }}>
+                  <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>Masab Khalil</h3>
+                  <div style={{ color: "var(--green)", fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 }}>Cricket</div>
+                </div>
+              </div>
+
+              {/* Player 7 */}
+              <div style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
+                <div style={{ height: "160px", overflow: "hidden" }}>
+                  <img src="/qaisar.png" alt="Qaisar" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+                </div>
+                <div style={{ padding: "12px 10px" }}>
+                  <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>Qaisar Ramzan</h3>
                   <div style={{ color: "var(--pine)", fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 }}>Cricket</div>
                 </div>
               </div>
