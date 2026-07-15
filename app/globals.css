@@ -1423,6 +1423,8 @@
     flex-direction: column;
     background: var(--cream-2);
     padding-bottom: 120px;
+    font-family: var(--font-nastaliq), "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", var(--sans);
+    line-height: 2;
   }
 
   .legends-hero {
@@ -1445,16 +1447,28 @@
     z-index: 2;
   }
 
+  .legends-hero .h-sec {
+    line-height: 1.6;
+  }
+
   .legends-hero .lead {
     max-width: 680px;
     margin: 0 auto;
     color: var(--muted);
+    font-size: 1.15rem;
+    line-height: 2.1;
   }
 
   .legend-showcase {
     margin-top: -30px;
     position: relative;
     z-index: 10;
+  }
+
+  .legends-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
   }
 
   .legend-split {
@@ -1467,6 +1481,12 @@
     box-shadow: 0 20px 40px rgba(14, 59, 44, 0.06);
     border: 1px solid var(--line);
     align-items: start;
+    direction: ltr;
+  }
+
+  .ls-right {
+    direction: rtl;
+    text-align: right;
   }
 
   .ls-image-wrap {
@@ -1480,6 +1500,7 @@
     width: 100%;
     aspect-ratio: 4/5;
     object-fit: cover;
+    object-position: top center;
     display: block;
     transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
@@ -1497,9 +1518,9 @@
   }
 
   .ls-name {
-    font-family: var(--fraunces);
-    font-size: 2.8rem;
-    line-height: 1.1;
+    font-family: var(--font-nastaliq), "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", var(--fraunces);
+    font-size: 2.4rem;
+    line-height: 1.7;
     color: var(--pine-deep);
     margin-bottom: 36px;
     font-weight: 600;
@@ -1521,28 +1542,30 @@
   }
 
   .lsm-label {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 0.95rem;
+    letter-spacing: 0;
+    text-transform: none;
     color: var(--muted);
     font-weight: 600;
   }
 
   .lsm-val {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--ink);
     font-weight: 500;
+    line-height: 1.8;
   }
 
   .ls-bio-title {
-    font-family: var(--fraunces);
-    font-size: 1.6rem;
+    font-family: var(--font-nastaliq), "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", var(--fraunces);
+    font-size: 1.5rem;
     color: var(--pine);
     margin-bottom: 16px;
     font-weight: 500;
     display: flex;
     align-items: center;
     gap: 12px;
+    line-height: 1.8;
   }
 
   .ls-bio-title::before {
@@ -1551,11 +1574,12 @@
     width: 30px;
     height: 2px;
     background: var(--amber);
+    flex-shrink: 0;
   }
 
   .ls-bio-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1.15rem;
+    line-height: 2.15;
     color: var(--muted);
   }
 
@@ -1580,7 +1604,7 @@
     }
 
     .ls-name {
-      font-size: 2.2rem;
+      font-size: 1.9rem;
     }
   }
 
@@ -1592,6 +1616,10 @@
     .legend-split {
       padding: 24px;
       border-radius: 24px;
+    }
+
+    .legends-list {
+      gap: 28px;
     }
 
     .ls-meta {
