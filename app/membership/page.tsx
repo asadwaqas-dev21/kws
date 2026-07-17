@@ -64,7 +64,7 @@ export default function Membership() {
             <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
             <span className="brand-text">
               <span className="brand-name">Khurram Welfare Society</span>
-              <span className="brand-sub">Serving Humanity Since 2014</span>
+              <span className="brand-sub">Serving Humanity Since 2012</span>
             </span>
           </Link>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
@@ -279,7 +279,7 @@ export default function Membership() {
                 <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
                 <span className="brand-text">
                   <span className="brand-name" style={{ color: '#fff' }}>Khurram Welfare Society</span>
-                  <span className="brand-sub">Serving Humanity Since 2014</span>
+                  <span className="brand-sub">Serving Humanity Since 2012</span>
                 </span>
               </Link>
               <p>Serving humanity without difference of religion, creed or caste.</p>

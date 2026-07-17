@@ -70,7 +70,7 @@ export default function Home() {
             <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
             <span className="brand-text">
               <span className="brand-name">Khurram Welfare Society</span>
-              <span className="brand-sub">Serving Humanity Since 2014</span>
+              <span className="brand-sub">Serving Humanity Since 2012</span>
             </span>
           </a>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
@@ -350,7 +350,7 @@ export default function Home() {
                 <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
                 <span className="brand-text">
                   <span className="brand-name" style={{ color: '#fff' }}>Khurram Welfare Society</span>
-                  <span className="brand-sub">Serving Humanity Since 2014</span>
+                  <span className="brand-sub">Serving Humanity Since 2012</span>
                 </span>
               </a>
               <p>A non-profit serving humanity through clean water, education, health, and welfare — without difference of religion, creed, or caste.</p>
