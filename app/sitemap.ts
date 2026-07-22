@@ -1,62 +1,39 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/seo";
+import { services } from "@/app/services/data";
+
+const staticRoutes: {
+  path: string;
+  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+  priority: number;
+}[] = [
+  { path: "/", changeFrequency: "weekly", priority: 1 },
+  { path: "/projects", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/services", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/team", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/sports", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/legends", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/directory", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/contact", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/membership", changeFrequency: "monthly", priority: 0.75 },
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://khurramwelfaresociety.org";
+  const lastModified = new Date();
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/projects`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/team`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/sports`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/legends`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/directory`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/membership`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-  ];
+  const pages: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
+    url: `${siteConfig.url}${route.path === "/" ? "" : route.path}`,
+    lastModified,
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
+  }));
+
+  const servicePages: MetadataRoute.Sitemap = services.map((service) => ({
+    url: `${siteConfig.url}/services/${service.id}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
+  return [...pages, ...servicePages];
 }

@@ -3,29 +3,29 @@ import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, createPageMetadata, siteConfig } from "@/lib/seo";
 
 const description =
-  "Learn about Khurram Welfare Society, founder Hafiz Abdul Ghaffar Kamboh, our vision, and the team serving communities in Khurram Hithar, Kasur.";
+  "Contact Khurram Welfare Society in Khurram Hithar, Kasur. Reach us for donations, volunteering, membership, and community welfare inquiries.";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "About KWS — Founder, Vision & Team",
+  title: "Contact Us",
   description,
-  path: "/team",
-  keywords: ["about KWS", "Hafiz Abdul Ghaffar Kamboh", "Khurram Welfare Society team"],
+  path: "/contact",
+  keywords: ["contact KWS", "Khurram Welfare Society phone", "donate Kasur NGO"],
 });
 
-export default function TeamLayout({ children }: { children: React.ReactNode }) {
+export default function ContactLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <JsonLd
         data={[
           breadcrumbJsonLd([
             { name: "Home", path: "/" },
-            { name: "About", path: "/team" },
+            { name: "Contact", path: "/contact" },
           ]),
           {
             "@context": "https://schema.org",
-            "@type": "AboutPage",
-            name: "About Khurram Welfare Society",
-            url: `${siteConfig.url}/team`,
+            "@type": "ContactPage",
+            name: "Contact Khurram Welfare Society",
+            url: `${siteConfig.url}/contact`,
             description,
             mainEntity: {
               "@id": `${siteConfig.url}/#organization`,

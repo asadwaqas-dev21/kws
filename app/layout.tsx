@@ -1,25 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationJsonLd, siteConfig, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
-
-const siteConfig = {
-  name: "Khurram Welfare Society",
-  title: "Khurram Welfare Society | Non-Profit Welfare Organization in Kasur, Pakistan",
-  description:
-    "Khurram Welfare Society (KWS) is a trusted non-profit welfare organization in Kasur, Pakistan, focused on clean water, education, healthcare, social welfare, and community development.",
-  url: "https://khurramwelfaresociety.org",
-  keywords: [
-    "Khurram Welfare Society",
-    "KWS",
-    "non profit organization Pakistan",
-    "charity organization Kasur",
-    "welfare society Kasur",
-    "clean water projects Pakistan",
-    "education support Pakistan",
-    "healthcare support Pakistan",
-    "social welfare organization",
-  ],
-};
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -31,50 +14,6 @@ const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: siteConfig.name,
-  alternateName: "KWS",
-  url: siteConfig.url,
-  logo: `${siteConfig.url}/kws.png`,
-  description: siteConfig.description,
-  foundingDate: "2014",
-  areaServed: {
-    "@type": "Place",
-    name: "Kasur, Pakistan",
-  },
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Khurram",
-    addressRegion: "Kasur",
-    addressCountry: "PK",
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer support",
-    telephone: "+923334178699",
-    email: "kwsociety2014@gmail.com",
-  },
-  sameAs: [
-    "https://www.facebook.com/KWSociety/",
-    "https://www.youtube.com/@aGhaffar702",
-  ],
-  founder: {
-    "@type": "Person",
-    name: "Hafiz Abdul Ghaffar Kamboh",
-  },
-};
-
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: siteConfig.name,
-  url: siteConfig.url,
-  description: siteConfig.description,
-  inLanguage: "en",
-};
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -82,13 +21,25 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: siteConfig.keywords,
+  keywords: [...siteConfig.keywords],
   applicationName: siteConfig.name,
-  authors: [{ name: siteConfig.name }],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
+  category: "Non-Profit Organization",
+  classification: "Charity & Social Welfare",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   alternates: {
     canonical: "/",
+    languages: {
+      "en-PK": "/",
+      "x-default": "/",
+    },
   },
   robots: {
     index: true,
@@ -105,38 +56,46 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: siteConfig.locale,
+    alternateLocale: ["ur_PK"],
     url: siteConfig.url,
     title: siteConfig.title,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [
-      {
-        url: "/kws.png",
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
+    countryName: "Pakistan",
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/kws.png"],
     creator: "@kwsociety",
   },
   icons: {
-    icon: "/kws.png",
-    shortcut: "/kws.png",
-    apple: "/kws.png",
+    icon: [{ url: "/kws.png", type: "image/png" }],
+    shortcut: ["/kws.png"],
+    apple: [{ url: "/kws.png", type: "image/png" }],
+  },
+  appleWebApp: {
+    capable: true,
+    title: siteConfig.shortName,
+    statusBarStyle: "default",
+  },
+  other: {
+    "geo.region": "PK-PB",
+    "geo.placename": "Kasur",
+    "geo.position": `${siteConfig.geo.latitude};${siteConfig.geo.longitude}`,
+    ICBM: `${siteConfig.geo.latitude}, ${siteConfig.geo.longitude}`,
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#14523c",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#14523c" },
+    { media: "(prefers-color-scheme: dark)", color: "#0e3b2c" },
+  ],
   width: "device-width",
   initialScale: 1,
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -148,12 +107,7 @@ export default function RootLayout({
     <html lang="en" className={`${fraunces.variable} ${jakarta.variable}`}>
       <body>
         {children}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([organizationSchema, websiteSchema]),
-          }}
-        />
+        <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
       </body>
     </html>
   );
