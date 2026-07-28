@@ -6,7 +6,7 @@ export const siteConfig = {
   title: "Khurram Welfare Society | Non-Profit Welfare Organization in Kasur, Pakistan",
   description:
     "Khurram Welfare Society (KWS) is a trusted non-profit in Kasur, Pakistan, delivering clean water, education, healthcare, social welfare, blood donation, and community development since 2014.",
-  url: "https://khurramwelfaresociety.org",
+  url: "https://kwsociety.org",
   locale: "en_US",
   language: "en",
   foundingDate: "2014",

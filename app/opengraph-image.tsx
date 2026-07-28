@@ -44,7 +44,7 @@ export default function Image() {
           </div>
         </div>
         <div style={{ display: "flex", fontSize: 24, opacity: 0.8 }}>
-          khurramwelfaresociety.org
+          kwsociety.org
         </div>
       </div>
     ),
