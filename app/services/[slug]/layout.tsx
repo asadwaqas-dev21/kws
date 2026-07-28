@@ -38,9 +38,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
   const seoTitle = seoTitles[service.id] || `${service.title} in Kasur`;
 
+  const seoDescriptions: Record<string, string> = {
+    "education": "Empowering students in Kasur through scholarships, free school supplies, and comprehensive educational support programs.",
+    "clean-water": "Providing safe drinking water across Kasur with new hand pumps, filtration plants, and community hygiene education.",
+    "blood-donation": "A dedicated blood donation network in Kasur connecting voluntary donors with patients in urgent need 24/7.",
+    "welfare": "Supporting vulnerable families in Kasur with monthly food rations, marriage assistance, and rapid emergency relief.",
+    "health": "Delivering free healthcare, medical camps, and financial aid for treatments to underserved areas in Kasur.",
+    "sports": "Promoting youth development through community sports events, local tournaments, and active engagement in Kasur.",
+  };
+  const seoDesc = seoDescriptions[service.id] || `${service.subtitle}. Learn how we help the community in Kasur.`;
+
   return createPageMetadata({
     title: seoTitle,
-    description: `${service.subtitle}. ${summary}`,
+    description: seoDesc,
     path: `/services/${service.id}`,
   });
 }
