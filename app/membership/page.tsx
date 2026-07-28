@@ -116,7 +116,7 @@ export default function Membership() {
           padding: "40px", 
           boxShadow: "var(--shadow-lift)", 
           fontFamily: "'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Arial', sans-serif" 
-        }} dir="rtl">
+        }} dir="rtl" lang="ur">
           
           <div className="mem-form-inner" style={{ border: "2px solid #111", padding: "30px" }}>
             {/* Header Section */}

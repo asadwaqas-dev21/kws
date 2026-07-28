@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "Khurram Welfare Society",
   shortName: "KWS",
-  title: "Khurram Welfare Society | Non-Profit Welfare Organization in Kasur, Pakistan",
+  title: "Khurram Welfare Society | Welfare Organization in Kasur",
   description:
     "Khurram Welfare Society (KWS) is a trusted non-profit in Kasur, Pakistan, delivering clean water, education, healthcare, social welfare, blood donation, and community development since 2014.",
   url: "https://kwsociety.org",
@@ -29,21 +29,7 @@ export const siteConfig = {
     facebook: "https://www.facebook.com/KWSociety/",
     youtube: "https://www.youtube.com/@aGhaffar702",
   },
-  keywords: [
-    "Khurram Welfare Society",
-    "KWS",
-    "non profit organization Pakistan",
-    "charity organization Kasur",
-    "welfare society Kasur",
-    "Khurram Hithar",
-    "clean water projects Pakistan",
-    "education support Pakistan",
-    "healthcare support Pakistan",
-    "blood donation Kasur",
-    "social welfare organization",
-    "NGO Kasur",
-    "community development Punjab",
-  ],
+
 } as const;
 
 type PageMetadataOptions = {
@@ -71,7 +57,7 @@ export function createPageMetadata({
   return {
     title,
     description,
-    keywords: Array.from(new Set([...siteConfig.keywords, ...keywords])),
+
     alternates: {
       canonical: path,
     },

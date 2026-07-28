@@ -28,16 +28,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const summary = service.description[0] ?? service.subtitle;
 
+  const seoTitles: Record<string, string> = {
+    "education": "Education Support in Kasur",
+    "clean-water": "Clean Water Projects in Kasur",
+    "blood-donation": "Blood Donation Support in Kasur",
+    "welfare": "Social Welfare Programs in Kasur",
+    "health": "Healthcare & Medical Aid in Kasur",
+    "sports": "Youth Sports Programs in Kasur",
+  };
+  const seoTitle = seoTitles[service.id] || `${service.title} in Kasur`;
+
   return createPageMetadata({
-    title: service.title,
-    description: `${service.subtitle}. ${summary}`.slice(0, 160),
+    title: seoTitle,
+    description: `${service.subtitle}. ${summary}`,
     path: `/services/${service.id}`,
-    keywords: [
-      service.title,
-      `${service.title} Kasur`,
-      "Khurram Welfare Society",
-      service.subtitle,
-    ],
   });
 }
 
