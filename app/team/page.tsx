@@ -22,6 +22,14 @@ const LEADERSHIP = [
     phone: "#",
   },
   {
+    name: "Muhammad Saleem Ahmad",
+    role: "Co-Founder",
+    img: "/Muhammad Saleem Ahmad.jpg",
+    quote: "A single act of kindness can change a life forever.",
+    fb: "#",
+    phone: "#",
+  },
+  {
     name: "Asad Waqas",
     role: "General Secretary",
     img: "/asad.png",
@@ -37,7 +45,7 @@ const TEAM = [
   { name: "Usman Tariq", role: "Water Projects Lead", img: "" },
   { name: "Bilal Raza", role: "Blood Drive Organizer", img: "" },
   { name: "Zubair Ahmed", role: "Welfare Officer", img: "" },
-  { name: "Kamran Iqbal", role: "Community Outreach", img: "" },
+  { name: "Muhammad Tayyab Sani", role: "Community Outreach", img: "/Muhammad Tayyab Sani.jpeg" },
 ];
 
 const STATS = [
@@ -345,7 +353,7 @@ export default function TeamPage() {
               </p>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr", gap: 22 }} className="tp-leaders-grid">
+            <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1fr", gap: 22 }} className="tp-leaders-grid">
               {LEADERSHIP.map((leader, idx) => (
                 <div key={leader.name} style={{
                   background: "#fff",
