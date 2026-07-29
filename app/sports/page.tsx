@@ -4,6 +4,40 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const CRICKET_LEGENDS = [
+  { name: "Master Muhammad Mudassir", img: "", sport: "Cricket" },
+  { name: "Abdul Hameed", img: "", sport: "Cricket" },
+  { name: "Muhammad Saleem Akhtar", img: "", sport: "Cricket" },
+  { name: "Abdul Razzaq", img: "", sport: "Cricket" },
+  { name: "Abdul Sattar Gulam Muhammad", img: "", sport: "Cricket" },
+  { name: "Rafee Ahmad Mehmood", img: "", sport: "Cricket" },
+  { name: "PT Sadiq Ameen", img: "", sport: "Cricket" },
+  { name: "Muhammad Saleem Ahmad", img: "", sport: "Cricket" },
+  { name: "Baoo Muhammad Shareef", img: "", sport: "Cricket" },
+  { name: "Abdul Rasheed Matee", img: "", sport: "Cricket" },
+  { name: "Yaseen Munir Ahmad", img: "", sport: "Cricket" },
+  { name: "Muhammad Shoaib Gori", img: "", sport: "Cricket" },
+  { name: "Muhammad Amin Munir", img: "", sport: "Cricket" },
+  { name: "Siddique Asim", img: "", sport: "Cricket" },
+  { name: "Muhammad Zulfiqar Gulam Muhammad", img: "", sport: "Cricket" },
+  { name: "Faisal Ramzan", img: "", sport: "Cricket" },
+  { name: "Maqsood Muhammad Hussain", img: "", sport: "Cricket" },
+  { name: "Master Abdul Sattar", img: "", sport: "Cricket" },
+  { name: "Muhammad Shakeel Ashraf", img: "", sport: "Cricket" },
+  { name: "Irfan Amin", img: "", sport: "Cricket" },
+  { name: "Hafiz Abid Khushi Muhammad", img: "", sport: "Cricket" },
+  { name: "Imran Shafee", img: "", sport: "Cricket" },
+  { name: "Usman Tufail", img: "/usman tufail.png", sport: "Cricket" },
+  { name: "M Nadeem ND", img: "/Nadeem ND.png", sport: "Cricket" },
+  { name: "Farakh Sohail Rabbani", img: "/farakh sohail.png", sport: "Cricket" },
+  { name: "Qaisar Ramzan", img: "/qaisar.png", sport: "Cricket" },
+  { name: "Ashfaq Aslam", img: "/ashfaq.png", sport: "Cricket" },
+  { name: "Muhammad Dawood Jonti", img: "", sport: "Cricket" },
+  { name: "Asad Waqas", img: "/asad.png", sport: "Cricket" },
+  { name: "Ahmad Waqas", img: "/ahmad waqas.png", sport: "Cricket" },
+  { name: "Masab Khalil", img: "/masab.png", sport: "Cricket" }
+];
+
 export default function Sports() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -233,82 +267,23 @@ export default function Sports() {
             </div>
 
             <div className="legends-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: "20px", marginTop: "40px" }}>
-              {/* Player 1 */}
-              <div style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
-                <div style={{ height: "160px", overflow: "hidden" }}>
-                  <img src="/Nadeem ND.png" alt="M Nadeem ND" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+              {CRICKET_LEGENDS.map((player) => (
+                <div key={player.name} style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
+                  <div style={{ height: "160px", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, var(--leaf), var(--pine))" }}>
+                    {player.img ? (
+                      <img src={player.img} alt={player.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} onError={(e) => { e.currentTarget.style.display = "none"; }} />
+                    ) : (
+                      <div style={{ color: "white", fontSize: "2rem", fontWeight: "bold", opacity: 0.8 }}>
+                        {player.name.split(" ").map(w => w[0]).join("").substring(0, 2).toUpperCase()}
+                      </div>
+                    )}
+                  </div>
+                  <div style={{ padding: "12px 10px" }}>
+                    <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>{player.name}</h3>
+                    <div style={{ color: "var(--green)", fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 }}>{player.sport}</div>
+                  </div>
                 </div>
-                <div style={{ padding: "12px 10px" }}>
-                  <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>M Nadeem ND</h3>
-                  <div style={{ color: "var(--green)", fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 }}>Cricket</div>
-                </div>
-              </div>
-
-              {/* Player 2 */}
-              <div style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
-                <div style={{ height: "160px", overflow: "hidden" }}>
-                  <img src="/usman tufail.png" alt="Usman Tufail" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
-                </div>
-                <div style={{ padding: "12px 10px" }}>
-                  <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>Usman Tufail</h3>
-                  <div style={{ color: "var(--amber)", fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 }}>Cricket</div>
-                </div>
-              </div>
-
-              {/* Player 3 */}
-              <div style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
-                <div style={{ height: "160px", overflow: "hidden" }}>
-                  <img src="/ashfaq.png" alt="Ashfaq Aslam" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
-                </div>
-                <div style={{ padding: "12px 10px" }}>
-                  <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>Ashfaq Aslam</h3>
-                  <div style={{ color: "var(--pine)", fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 }}>Cricket</div>
-                </div>
-              </div>
-
-              {/* Player 4 */}
-              <div style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
-                <div style={{ height: "160px", overflow: "hidden" }}>
-                  <img src="/farakh sohail.png" alt="Farakh Sohail Rabbani" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
-                </div>
-                <div style={{ padding: "12px 10px" }}>
-                  <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>Farakh Sohail Rabbani</h3>
-                  <div style={{ color: "var(--pine)", fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 }}>Cricket</div>
-                </div>
-              </div>
-
-              {/* Player 5 */}
-              <div style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
-                <div style={{ height: "160px", overflow: "hidden" }}>
-                  <img src="/ahmad waqas.png" alt="Ahmad Waqas" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
-                </div>
-                <div style={{ padding: "12px 10px" }}>
-                  <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>Ahmad Waqas</h3>
-                  <div style={{ color: "var(--amber)", fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 }}>Cricket</div>
-                </div>
-              </div>
-
-              {/* Player 6 */}
-              <div style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
-                <div style={{ height: "160px", overflow: "hidden" }}>
-                  <img src="/masab.png" alt="Masab" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
-                </div>
-                <div style={{ padding: "12px 10px" }}>
-                  <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>Masab Khalil</h3>
-                  <div style={{ color: "var(--green)", fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 }}>Cricket</div>
-                </div>
-              </div>
-
-              {/* Player 7 */}
-              <div style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
-                <div style={{ height: "160px", overflow: "hidden" }}>
-                  <img src="/qaisar.png" alt="Qaisar" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
-                </div>
-                <div style={{ padding: "12px 10px" }}>
-                  <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>Qaisar Ramzan</h3>
-                  <div style={{ color: "var(--pine)", fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 }}>Cricket</div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
