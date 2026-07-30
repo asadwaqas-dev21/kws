@@ -71,7 +71,7 @@ export default function Home() {
             <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
             <span className="brand-text">
               <span className="brand-name">Khurram Welfare Society</span>
-              <span className="brand-sub">Serving Humanity Since 2012</span>
+              <span className="brand-sub">Serving Humanity Since 2014</span>
             </span>
           </a>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
@@ -114,13 +114,13 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="wrap hero-inner">
           <div className="hero-copy">
-            <span className="eyebrow">Welfare for all — no exceptions</span>
-            <h1>Serving humanity, <em>without difference</em> of creed or caste.</h1>
-            <p className="lead">Khurram Welfare Society brings clean water, education, healthcare, and dignity to underprivileged families across Kasur — and empowers communities to stand on their own.</p>
+            <span className="eyebrow">Serving humanity without difference of creed or caste.</span>
+            <h1>Non-Profit Welfare Organization in Kasur, Pakistan</h1>
+            <p className="lead">Khurram Welfare Society is a volunteer-led NGO in Kasur providing clean water, education support, healthcare assistance, blood donation services, monthly ration support and youth development programs.</p>
             <div className="hero-actions">
               <a href="#causes" className="btn btn-amber hero-donate-btn">Donate Now <span className="arrow">→</span></a>
               <Link href="/membership" className="btn btn-amber hero-member-btn">Apply for membership <span className="arrow">→</span></Link>
-              <a href="#focus" className="btn btn-ghost">Our Projects</a>
+              <Link href="/services/clean-water" className="btn btn-ghost">Explore our clean water projects in Kasur</Link>
             </div>
             <div className="hero-mini">
               <div><div className="m-num">2014</div><div className="m-lbl">Serving since</div></div>
@@ -370,7 +370,7 @@ export default function Home() {
                 <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
                 <span className="brand-text">
                   <span className="brand-name" style={{ color: '#fff' }}>Khurram Welfare Society</span>
-                  <span className="brand-sub">Serving Humanity Since 2012</span>
+                  <span className="brand-sub">Serving Humanity Since 2014</span>
                 </span>
               </a>
               <p>A non-profit serving humanity through clean water, education, health, and welfare — without difference of religion, creed, or caste.</p>

@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "Khurram Welfare Society",
   shortName: "KWS",
-  title: "Khurram Welfare Society | NGO & Charity in Kasur",
+  title: "NGO & Welfare Organization in Kasur | Khurram Welfare Society",
   description:
-    "Khurram Welfare Society (KWS) is a trusted non-profit in Kasur, Pakistan, delivering clean water, education, healthcare, social welfare, blood donation, and community development since 2014.",
+    "Khurram Welfare Society is a volunteer-led NGO in Kasur providing clean water, education, healthcare, blood donation, welfare, and youth development programs.",
   url: "https://kwsociety.org",
   locale: "en_US",
   language: "en",

@@ -3,11 +3,10 @@ import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Sports & Youth Development",
+  title: "Khurram Sports Wing | Youth Sports Development in Kasur",
   description:
     "Discover how Khurram Welfare Society encourages sports, teamwork, and youth development in Khurram Hithar and surrounding communities in Kasur.",
   path: "/sports",
-  keywords: ["community sports Kasur", "youth development Pakistan", "KWS sports"],
 });
 
 export default function SportsLayout({ children }: { children: React.ReactNode }) {

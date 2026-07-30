@@ -142,10 +142,10 @@ export default function Sports() {
           <div className="wrap" style={{ position: "relative", zIndex: 2 }}>
             <span className="eyebrow light" style={{ justifyContent: "center", color: "var(--amber)" }}>KWS Sports Wing</span>
             <h1 style={{ fontFamily: "var(--serif)", fontSize: "clamp(3rem, 5vw, 4.5rem)", color: "#fff", margin: "16px 0", lineHeight: 1.1 }}>
-              Nurturing Talent.<br />Building Character.
+              Khurram Sports Wing: Youth Sports Development in Kasur
             </h1>
             <p className="lead" style={{ margin: "0 auto", maxWidth: 700, color: "rgba(255,255,255,0.85)", fontSize: "1.2rem" }}>
-              We believe that sports are essential for a healthy community. Our sports initiatives bring the youth of Khurram Hithar together, promoting fitness, discipline, and teamwork through local tournaments and events.
+              Khurram Sports Wing is the sports and youth development initiative of Khurram Welfare Society. We organize cricket, volleyball, badminton and community sports events for young athletes in Khurram Hithar and surrounding areas of Kasur.
             </p>
           </div>
         </div>
@@ -158,7 +158,7 @@ export default function Sports() {
               <div style={{ fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, marginTop: 5, fontSize: "0.9rem" }}>Tournaments Hosted</div>
             </div>
             <div>
-              <div style={{ fontSize: "3rem", fontWeight: "bold", lineHeight: 1 }}>300+</div>
+              <div style={{ fontSize: "3rem", fontWeight: "bold", lineHeight: 1 }}>500+</div>
               <div style={{ fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, marginTop: 5, fontSize: "0.9rem" }}>Athletes Engaged</div>
             </div>
             <div>
@@ -240,8 +240,8 @@ export default function Sports() {
                 <div style={{ width: "80px", height: "80px", borderRadius: "50%", background: "rgba(76,175,136,.1)", color: "var(--green)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
                 </div>
-                <h3 style={{ fontSize: "1.5rem", marginBottom: "15px" }}>Volly Ball</h3>
-                <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>Preserving our cultural heritage. We sponsor local Kabaddi matches and support athletes with nutrition and training gear to compete at higher levels.</p>
+                <h3 style={{ fontSize: "1.5rem", marginBottom: "15px" }}>Volleyball</h3>
+                <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>Fostering teamwork and agility. We organize thrilling local volleyball tournaments and provide high-quality nets and balls to encourage youth participation in the sport.</p>
               </div>
 
               {/* Football */}
@@ -250,7 +250,7 @@ export default function Sports() {
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg>
                 </div>
                 <h3 style={{ fontSize: "1.5rem", marginBottom: "15px" }}>Badminton</h3>
-                <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>Growing the beautiful game in Kasur. We provide footballs, goal nets, and organize local league matches to keep the youth engaged in team sports.</p>
+                <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>Promoting speed and precision. We support community badminton courts with rackets, shuttlecocks, and proper lighting so players can enjoy the game even after sunset.</p>
               </div>
 
             </div>
