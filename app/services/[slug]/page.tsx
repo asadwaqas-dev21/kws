@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname, useParams, notFound } from "next/navigation";
+import { useParams, notFound, usePathname } from "next/navigation";
 import { services } from "../data";
+import { SocialShare } from "@/components/SocialShare";
 
 function ServiceIcon({ path, size = 32, stroke = "currentColor" }: { path: string; size?: number; stroke?: string }) {
   return (
@@ -358,6 +359,11 @@ export default function ServiceDetail() {
                     </div>
                   </div>
                 )}
+
+                {/* Social Share */}
+                <div style={{ marginTop: "10px" }}>
+                  <SocialShare title={`KWS Service: ${service.title}`} />
+                </div>
               </div>
 
               {/* RIGHT COLUMN - Sidebar */}

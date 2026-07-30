@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { SocialShare } from "@/components/SocialShare";
 
 export default function CaseStudyPage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -162,6 +163,8 @@ export default function CaseStudyPage() {
                 Installation Photo 2
               </div>
             </div>
+
+            <SocialShare title="KWS Project Case Study: Hand Pump Installation" />
           </div>
         </section>
 
