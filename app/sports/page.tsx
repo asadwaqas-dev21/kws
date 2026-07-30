@@ -12,7 +12,7 @@ const CRICKET_LEGENDS = [
   { name: "Abdul Sattar Gulam Muhammad", img: "", sport: "Cricket" },
   { name: "Rafee Ahmad Mehmood", img: "", sport: "Cricket" },
   { name: "PT Sadiq Ameen", img: "", sport: "Cricket" },
-  { name: "Muhammad Saleem Ahmad", img: "", sport: "Cricket" },
+  { name: "Muhammad Saleem Ahmad", img: "/Muhammad Saleem Ahmad.jpg", sport: "Cricket" },
   { name: "Baoo Muhammad Shareef", img: "", sport: "Cricket" },
   { name: "Abdul Rasheed Matee", img: "", sport: "Cricket" },
   { name: "Yaseen Munir Ahmad", img: "", sport: "Cricket" },
