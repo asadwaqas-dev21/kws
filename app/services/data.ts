@@ -533,8 +533,8 @@ export const services: ServiceData[] = [
     impact: "Our blood donation network has facilitated over 200 emergency donations, directly saving lives. With 150+ registered donors, we can respond to most blood type requests within hours. Our awareness campaigns have normalized voluntary blood donation in the community.",
   },
   {
-    id: "muqada-boxes",
-    title: "Muqada Work Boxes",
+    id: "Muqaddas-boxes",
+    title: "Muqaddas Work Boxes",
     subtitle: "Community donation boxes for ongoing relief",
     iconPath: "M20 8v13H4V8",
     color: "#8E44AD",
@@ -545,7 +545,7 @@ export const services: ServiceData[] = [
       { label: "Funds Raised", value: "Ongoing" },
     ],
     description: [
-      "The Muqada Work Boxes are a unique initiative by KWS that enables continuous, small-scale community giving. These collection boxes are placed at shops, mosques, and community centers across the village.",
+      "The Muqaddas Work Boxes are a unique initiative by KWS that enables continuous, small-scale community giving. These collection boxes are placed at shops, mosques, and community centers across the village.",
       "Community members can contribute any amount at any time — even a few rupees. The collected funds are pooled and used transparently for welfare activities including rations, medical aid, and infrastructure projects.",
       "This system ensures that welfare work never stops due to lack of funds. It empowers every individual to be a part of the solution, regardless of how much they can give. Monthly collection reports are shared publicly for full transparency.",
     ],
@@ -557,12 +557,12 @@ export const services: ServiceData[] = [
       "Community ownership of the welfare process",
     ],
     longDescription: [
-      "The Muqada Work Box system is one of KWS's most innovative and community-driven initiatives. Inspired by the Islamic tradition of Sadaqah Jariyah (continuous charity), these boxes allow anyone to contribute to community welfare at any time.",
+      "The Muqaddas Work Box system is one of KWS's most innovative and community-driven initiatives. Inspired by the Islamic tradition of Sadaqah Jariyah (continuous charity), these boxes allow anyone to contribute to community welfare at any time.",
       "The concept is simple but powerful: sturdy, locked collection boxes are placed at strategic locations throughout the village — shops, mosques, community halls, and public spaces. Anyone passing by can drop in whatever amount they can spare.",
       "What makes this system special is its inclusivity. You don't need to be wealthy to make a difference. A shopkeeper can drop in the change from a transaction. A laborer can contribute a few rupees from the day's wages. Over time, these small contributions add up to significant funds.",
       "We currently have over 30 boxes placed across the community. Each box is clearly labeled with the KWS name and purpose. Trusted community volunteers are responsible for collecting the funds on a regular schedule.",
       "Transparency is paramount. Every collection is counted in the presence of witnesses and recorded. Monthly reports detailing collections and expenditures are shared publicly — posted at community centers and shared on social media. Community members can see exactly where their contributions are going.",
-      "The funds collected through Muqada boxes are used exclusively for welfare activities — ration distribution, medical assistance, emergency relief, and small infrastructure projects. This system ensures that KWS always has a baseline fund to serve the community, even when large donations are not available.",
+      "The funds collected through Muqaddas boxes are used exclusively for welfare activities — ration distribution, medical assistance, emergency relief, and small infrastructure projects. This system ensures that KWS always has a baseline fund to serve the community, even when large donations are not available.",
     ],
     howItWorks: [
       { title: "Box Placement", description: "Secure, labeled collection boxes are placed at shops, mosques, and community spaces with the consent of the location owners." },
@@ -570,7 +570,7 @@ export const services: ServiceData[] = [
       { title: "Regular Collection", description: "Trusted volunteers collect funds on a set schedule, counting them in the presence of witnesses for transparency." },
       { title: "Transparent Utilization", description: "Funds are allocated to welfare activities. Monthly reports are published publicly showing collections and expenditures." },
     ],
-    impact: "The Muqada box system has created a sustainable, community-funded welfare model. With 30+ boxes in operation, we collect consistent funds that keep our welfare programs running month after month. The system has fostered a culture of regular giving, with community members taking pride in their contributions.",
+    impact: "The Muqaddas box system has created a sustainable, community-funded welfare model. With 30+ boxes in operation, we collect consistent funds that keep our welfare programs running month after month. The system has fostered a culture of regular giving, with community members taking pride in their contributions.",
   },
   {
     id: "sports",

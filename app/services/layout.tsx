@@ -4,7 +4,7 @@ import { breadcrumbJsonLd, createPageMetadata, siteConfig } from "@/lib/seo";
 import { services } from "./data";
 
 const description =
-  "Explore Khurram Welfare Society services: clean water, education, health, street lights, social welfare, blood donation, muqada boxes, and youth sports in Kasur.";
+  "Explore Khurram Welfare Society services: clean water, education, health, street lights, social welfare, blood donation, Muqaddas boxes, and youth sports in Kasur.";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Our Services",
