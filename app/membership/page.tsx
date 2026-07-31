@@ -78,14 +78,14 @@ export default function Membership() {
                 <svg className="dd-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg>
               </button>
               <div className="nav-dropdown-menu">
-                <Link href="/services/clean-water" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(47,143,107,.1)",color:"#2F8F6B"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2s7 7.4 7 12a7 7 0 0 1-14 0c0-4.6 7-12 7-12z"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Clean Water</span><span className="nav-dd-sub">Hand pumps & filtration</span></div></Link>
-                <Link href="/services/education" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(232,163,61,.1)",color:"#CE8A1F"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 10L12 5 2 10l10 5 10-5z"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Education</span><span className="nav-dd-sub">Scholarships & supplies</span></div></Link>
-                <Link href="/services/health" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(232,93,93,.1)",color:"#E85D5D"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Health & Medical</span><span className="nav-dd-sub">Free camps & aid</span></div></Link>
-                <Link href="/services/street-lights" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(206,138,31,.1)",color:"#CE8A1F"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2v6M12 8a4 4 0 0 1 4 4v8H8v-8a4 4 0 0 1 4-4z"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Street Lights</span><span className="nav-dd-sub">43+ lights installed</span></div></Link>
-                <Link href="/services/welfare" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(20,80,60,.1)",color:"#14503C"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Social Welfare</span><span className="nav-dd-sub">Rations & relief</span></div></Link>
-                <Link href="/services/blood-donation" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(192,57,43,.1)",color:"#C0392B"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 3s6 4.5 6 10a6 6 0 0 1-12 0c0-5.5 6-10 6-10z"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Blood Donation</span><span className="nav-dd-sub">Donor network</span></div></Link>
-                <Link href="/services/muqada-boxes" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(142,68,173,.1)",color:"#8E44AD"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M20 8v13H4V8"/><path d="M2 3h20l-2 5H4z"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Muqada Boxes</span><span className="nav-dd-sub">Community giving</span></div></Link>
-                <Link href="/services/sports" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(41,128,185,.1)",color:"#2980B9"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Sports & Youth</span><span className="nav-dd-sub">Tournaments & events</span></div></Link>
+                <Link href="/services/clean-water" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(47,143,107,.1)", color: "#2F8F6B" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2s7 7.4 7 12a7 7 0 0 1-14 0c0-4.6 7-12 7-12z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Clean Water</span><span className="nav-dd-sub">Hand pumps & filtration</span></div></Link>
+                <Link href="/services/education" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(232,163,61,.1)", color: "#CE8A1F" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 10L12 5 2 10l10 5 10-5z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Education</span><span className="nav-dd-sub">Scholarships & supplies</span></div></Link>
+                <Link href="/services/health" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(232,93,93,.1)", color: "#E85D5D" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Health & Medical</span><span className="nav-dd-sub">Free camps & aid</span></div></Link>
+                <Link href="/services/street-lights" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(206,138,31,.1)", color: "#CE8A1F" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2v6M12 8a4 4 0 0 1 4 4v8H8v-8a4 4 0 0 1 4-4z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Street Lights</span><span className="nav-dd-sub">43+ lights installed</span></div></Link>
+                <Link href="/services/welfare" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(20,80,60,.1)", color: "#14503C" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Social Welfare</span><span className="nav-dd-sub">Rations & relief</span></div></Link>
+                <Link href="/services/blood-donation" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(192,57,43,.1)", color: "#C0392B" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 3s6 4.5 6 10a6 6 0 0 1-12 0c0-5.5 6-10 6-10z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Blood Donation</span><span className="nav-dd-sub">Donor network</span></div></Link>
+                <Link href="/services/muqada-boxes" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(142,68,173,.1)", color: "#8E44AD" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M20 8v13H4V8" /><path d="M2 3h20l-2 5H4z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Muqada Boxes</span><span className="nav-dd-sub">Community giving</span></div></Link>
+                <Link href="/services/sports" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(41,128,185,.1)", color: "#2980B9" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Sports & Youth</span><span className="nav-dd-sub">Tournaments & events</span></div></Link>
                 <div className="nav-dd-sep" />
                 <Link href="/services" className="nav-dd-viewall" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}>View All Services →</Link>
               </div>
@@ -105,19 +105,19 @@ export default function Membership() {
       </header>
 
       <main style={{ flexGrow: 1, padding: "60px 20px" }}>
-        
+
         {/* Form Container */}
         {/* Form Container */}
-        <form action={handleSubmit} className="mem-form-container" style={{ 
-          maxWidth: 900, 
-          margin: "0 auto", 
-          background: "#fff", 
-          border: "4px solid #111", 
-          padding: "40px", 
-          boxShadow: "var(--shadow-lift)", 
-          fontFamily: "'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Arial', sans-serif" 
+        <form action={handleSubmit} className="mem-form-container" style={{
+          maxWidth: 900,
+          margin: "0 auto",
+          background: "#fff",
+          border: "4px solid #111",
+          padding: "40px",
+          boxShadow: "var(--shadow-lift)",
+          fontFamily: "'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Arial', sans-serif"
         }} dir="rtl" lang="ur">
-          
+
           <div className="mem-form-inner" style={{ border: "2px solid #111", padding: "30px" }}>
             {/* Header Section */}
             <div className="mem-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", paddingBottom: "20px", marginBottom: "20px", position: "relative" }}>
@@ -127,9 +127,9 @@ export default function Membership() {
               <div style={{ textAlign: "center", flex: 1, padding: "0 20px" }}>
                 <h1 className="mem-h1" style={{ fontSize: "3rem", fontWeight: "bold", margin: "0 0 10px 0", letterSpacing: "-1px" }}>خرم ویلفیئر سوسائٹی</h1>
                 <h2 className="mem-h2" style={{ fontSize: "1.6rem", margin: "0 0 15px 0" }}>خرم ہٹھاڑ (قصور)</h2>
-                
+
                 <div className="mem-header-links" style={{ display: "flex", justifyContent: "center", gap: 20, fontSize: "1rem", direction: "ltr", marginTop: 10 }}>
-                  <span><b dir="rtl">ای میل:</b> kwsociety1@yahoo.com</span>
+                  <span><b dir="rtl">ای میل:</b> kwsociety2014@gmail.com</span>
                   <span><b dir="rtl">ویب سائٹ:</b> www.kwsociety.org</span>
                 </div>
                 <div className="mem-header-links" style={{ display: "flex", justifyContent: "center", gap: 20, fontSize: "1rem", direction: "ltr", marginTop: 8 }}>
@@ -246,7 +246,7 @@ export default function Membership() {
             </div>
 
             {/* Office Use */}
-            <div style={{ marginTop: "40px", paddingTop: "40px" }}>
+            <div className="mem-office-section" style={{ marginTop: "40px", paddingTop: "40px" }}>
               <p style={{ fontWeight: "bold", fontSize: "1.2rem" }}>جاری کردہ:</p>
               <div style={{ marginTop: 20, fontSize: "1.2rem", lineHeight: "2.5" }}>
                 <span>اس فارم کو اجلاس منعقدہ</span>
@@ -276,14 +276,19 @@ export default function Membership() {
                 </div>
               </div>
             </div>
-            
+
           </div>
-          
-          <div style={{ marginTop: 40, display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <button type="submit" className="btn btn-amber" style={{ padding: "16px 40px", fontSize: "1.1rem" }} disabled={isPending}>
-              {isPending ? "Sending..." : "Submit Application"}
-            </button>
-            {message && <div style={{ marginTop: 20, fontSize: "1.1rem", color: message.includes("success") ? "green" : "red", fontWeight: "bold" }}>{message}</div>}
+
+          <div className="no-print" style={{ marginTop: 40, display: "flex", flexDirection: "column", alignItems: "center", gap: "20px" }}>
+            <div style={{ display: "flex", gap: "15px", flexWrap: "wrap", justifyContent: "center" }}>
+              <button type="button" className="btn btn-ghost" style={{ padding: "16px 40px", fontSize: "1.1rem", borderColor: "#111", color: "#111" }} onClick={() => window.print()}>
+                Print Form
+              </button>
+              <button type="submit" className="btn btn-amber" style={{ padding: "16px 40px", fontSize: "1.1rem" }} disabled={isPending}>
+                {isPending ? "Sending..." : "Submit Application"}
+              </button>
+            </div>
+            {message && <div style={{ fontSize: "1.1rem", color: message.includes("success") ? "green" : "red", fontWeight: "bold" }}>{message}</div>}
           </div>
         </form>
 
@@ -338,6 +343,35 @@ export default function Membership() {
           .mem-grid > div { flex-direction: column !important; align-items: flex-start !important; gap: 8px; }
           .mem-grid input { width: 100% !important; border-bottom: 1px solid #666 !important; }
           .mem-grid label { margin-bottom: 0 !important; font-size: 1.1rem !important; }
+        }
+        @media print {
+          .topbar, #header, .footer, .no-print { display: none !important; }
+          body, html { background: #fff !important; margin: 0 !important; padding: 0 !important; }
+          main { padding: 0 !important; background: #fff !important; }
+          .mem-form-container { max-width: 100% !important; border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; }
+          .mem-form-inner { border: none !important; padding: 10px 20px !important; }
+          .mem-header { padding-bottom: 5px !important; margin-bottom: 10px !important; }
+          .mem-h1 { font-size: 2rem !important; margin-bottom: 0 !important; }
+          .mem-h2 { font-size: 1.2rem !important; margin-bottom: 5px !important; }
+          .mem-header-links { margin-top: 5px !important; font-size: 0.9rem !important; }
+          .mem-header img { max-width: 90px !important; }
+          .mem-header > div:last-child { width: 90px !important; height: 110px !important; font-size: 0.9rem !important; }
+          .mem-title { font-size: 1.8rem !important; margin: 15px 0 5px !important; }
+          .mem-subtitle { font-size: 1.1rem !important; margin-bottom: 20px !important; }
+          .mem-grid { gap: 10px 30px !important; margin-bottom: 25px !important; }
+          .mem-grid label { font-size: 1.1rem !important; }
+          .mem-grid input { font-size: 1rem !important; }
+          h3 { margin: 20px 0 15px !important; font-size: 1.5rem !important; }
+          ol { font-size: 1rem !important; line-height: 1.5 !important; margin-bottom: 25px !important; padding-right: 20px !important; }
+          ol li { margin-bottom: 4px !important; }
+          .mem-signs { margin-bottom: 20px !important; gap: 30px !important; }
+          .mem-signs label { font-size: 1.1rem !important; }
+          .mem-office-section { margin-top: 15px !important; padding-top: 10px !important; }
+          .mem-office-section p { margin: 0 !important; }
+          .mem-office-section > div { margin-top: 10px !important; line-height: 1.6 !important; }
+          .mem-office { margin-top: 30px !important; gap: 30px !important; }
+          .mem-office > div > div:first-child { padding-top: 5px !important; }
+          .mem-office > div > div { margin-top: 15px !important; font-size: 1rem !important; }
         }
       `}</style>
     </div>
