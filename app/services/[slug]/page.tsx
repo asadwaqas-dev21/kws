@@ -157,14 +157,7 @@ export default function ServiceDetail() {
                   fontSize: "clamp(2rem, 4vw, 3rem)", fontFamily: "var(--serif)",
                   marginBottom: "10px", fontWeight: 700, lineHeight: 1.15, color: "var(--ink)",
                 }}>
-                  {{
-                    "clean-water": "Clean Water and Hand Pump Projects in Kasur",
-                    "education": "Education and Scholarship Support in Kasur",
-                    "health": "Healthcare and Medical Aid in Kasur",
-                    "blood-donation": "Blood Donor Network in Kasur",
-                    "welfare": "Ration and Welfare Support in Kasur",
-                    "street-lights": "Community Street Light Projects in Kasur"
-                  }[service.id] || service.title}
+                  {service.title}
                 </h1>
                 <p style={{ fontSize: "1.15rem", color: "var(--muted)", lineHeight: 1.6, maxWidth: "600px" }}>
                   {service.subtitle}
