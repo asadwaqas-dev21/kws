@@ -76,7 +76,6 @@ export default function Contact() {
           </Link>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
             <Link href="/" className={pathname === "/" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link href="/projects" className={pathname === "/projects" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Projects</Link>
             <Link href="/team" className={pathname === "/team" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>About</Link>
             <div className={`nav-dropdown${isDropdownOpen ? " open" : ""}`}>
               <button className={`nav-dropdown-trigger${pathname?.startsWith("/services") ? " active" : ""}`} onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
@@ -99,10 +98,11 @@ export default function Contact() {
             <Link href="/sports" className={pathname === "/sports" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Sports</Link>
             <Link href="/legends" className={pathname === "/legends" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Legends</Link>
             <Link href="/directory" className={pathname === "/directory" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Directory</Link>
+            <Link href="/achievers" className={pathname === "/achievers" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Achievers</Link>
             <Link href="/contact" className={pathname === "/contact" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </nav>
           <div className="nav-cta">
-            <Link href="/membership" className="btn btn-amber">Apply for membership <span className="arrow">→</span></Link>
+            <Link href="/membership" className="btn btn-amber">Apply for membership </Link>
             <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
               <span></span><span></span><span></span>
             </button>
@@ -114,21 +114,19 @@ export default function Contact() {
         
         {/* HERO SECTION */}
         <div style={{
-          position: "relative", overflow: "hidden", padding: "100px 0 80px",
-          background: "linear-gradient(160deg, var(--cream) 0%, var(--cream-2) 60%)",
+          position: "relative", overflow: "hidden", padding: "120px 0 100px",
+          background: "linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), url('/contact-hero-bg.png') center/cover no-repeat",
           borderBottom: "1px solid var(--line)",
-          textAlign: "center"
+          textAlign: "center",
+          color: "white"
         }}>
-          {/* decorative orbs */}
-          <div style={{ position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(76,175,136,.13), transparent 65%)", pointerEvents: "none" }} />
-          <div style={{ position: "absolute", bottom: -80, left: -80, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(232,163,61,.11), transparent 65%)", pointerEvents: "none" }} />
           
           <div className="wrap" style={{ position: "relative", zIndex: 2 }}>
-            <span className="eyebrow" style={{ justifyContent: "center" }}>Get In Touch</span>
-            <h1 style={{ fontFamily: "var(--serif)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", color: "var(--ink)", margin: "16px 0", lineHeight: 1.1 }}>
-              We'd love to hear from <em style={{ fontStyle: "italic", color: "var(--green)" }}>you.</em>
+            <span className="eyebrow" style={{ justifyContent: "center", color: "var(--amber)", textShadow: "0 2px 4px rgba(0,0,0,0.8)" }}>Get In Touch</span>
+            <h1 style={{ fontFamily: "var(--serif)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", color: "#ffffff", margin: "16px 0", lineHeight: 1.1, textShadow: "0 2px 8px rgba(0,0,0,0.8)" }}>
+              We'd love to hear from <em style={{ fontStyle: "italic", color: "var(--amber)" }}>you.</em>
             </h1>
-            <p className="lead" style={{ margin: "0 auto", maxWidth: 600 }}>
+            <p className="lead" style={{ margin: "0 auto", maxWidth: 600, color: "rgba(255,255,255,0.95)", textShadow: "0 2px 6px rgba(0,0,0,0.8)" }}>
               Whether you have a question about our projects, want to volunteer, or simply want to say hello, our team is ready to answer all your questions.
             </p>
           </div>

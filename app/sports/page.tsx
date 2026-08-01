@@ -92,7 +92,6 @@ export default function Sports() {
           </Link>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
             <Link href="/" className={pathname === "/" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link href="/projects" className={pathname === "/projects" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Projects</Link>
             <Link href="/team" className={pathname === "/team" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>About</Link>
             <div className={`nav-dropdown${isDropdownOpen ? " open" : ""}`}>
               <button className={`nav-dropdown-trigger${pathname?.startsWith("/services") ? " active" : ""}`} onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
@@ -115,10 +114,11 @@ export default function Sports() {
             <Link href="/sports" className={pathname === "/sports" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Sports</Link>
             <Link href="/legends" className={pathname === "/legends" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Legends</Link>
             <Link href="/directory" className={pathname === "/directory" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Directory</Link>
+            <Link href="/achievers" className={pathname === "/achievers" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Achievers</Link>
             <Link href="/contact" className={pathname === "/contact" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </nav>
           <div className="nav-cta">
-            <Link href="/membership" className="btn btn-amber">Apply for membership <span className="arrow">→</span></Link>
+            <Link href="/membership" className="btn btn-amber">Apply for membership </Link>
             <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
               <span></span><span></span><span></span>
             </button>
@@ -131,7 +131,7 @@ export default function Sports() {
         {/* HERO SECTION */}
         <div style={{
           position: "relative", overflow: "hidden", padding: "120px 0 100px",
-          background: "linear-gradient(135deg, #1A365D 0%, #2A4365 100%)",
+          background: "linear-gradient(rgba(26, 54, 93, 0.75), rgba(42, 67, 101, 0.85)), url('/sports-hero-bg.png') center/cover no-repeat",
           color: "white",
           textAlign: "center"
         }}>
@@ -317,7 +317,7 @@ export default function Sports() {
                 <a href="https://www.youtube.com/@aGhaffar702" aria-label="YouTube"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z" /></svg></a>
               </div>
             </div>
-            <div className="foot-col"><h4>Our Work</h4><Link href="/projects">Clean Water</Link><Link href="/projects">Education</Link><Link href="/projects">Health</Link><Link href="/projects">Welfare</Link><Link href="/projects">Blood Donation</Link></div>
+            <div className="foot-col"><h4>Our Work</h4><Link href="/updates">Clean Water</Link><Link href="/updates">Education</Link><Link href="/updates">Health</Link><Link href="/updates">Welfare</Link><Link href="/updates">Blood Donation</Link></div>
             <div className="foot-col"><h4>Get Involved</h4><Link href="/contact">Donate Now</Link><Link href="/contact">Volunteer</Link><Link href="/membership">Become a Member</Link><Link href="/contact">Contact Us</Link></div>
             <div className="foot-col"><h4>Contact</h4><p>Village Khurram Hithar,<br />Tehsil &amp; Dist. Kasur,<br />Pakistan</p><p style={{ marginTop: '12px' }}><a href="tel:+923334178699">+92 333 4178 699</a><br /><a href="mailto:kwsociety2014@gmail.com">kwsociety2014@gmail.com</a></p></div>
           </div>

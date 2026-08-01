@@ -72,7 +72,6 @@ export default function Services() {
           </Link>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
             <Link href="/" className={pathname === "/" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link href="/projects" className={pathname === "/projects" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Projects</Link>
             <Link href="/team" className={pathname === "/team" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>About</Link>
             <div className={`nav-dropdown${isDropdownOpen ? " open" : ""}`}>
               <button className={`nav-dropdown-trigger${pathname?.startsWith("/services") ? " active" : ""}`} onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
@@ -97,7 +96,7 @@ export default function Services() {
             <Link href="/contact" className={pathname === "/contact" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </nav>
           <div className="nav-cta">
-            <Link href="/membership" className="btn btn-amber">Apply for membership <span className="arrow">→</span></Link>
+            <Link href="/membership" className="btn btn-amber">Apply for membership </Link>
             <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
               <span></span><span></span><span></span>
             </button>
@@ -138,7 +137,7 @@ export default function Services() {
             }}>
               {[
                 { num: "8", label: "Service Areas" },
-                { num: "110+", label: "Projects Done" },
+                { num: "110+", label: "Updates Done" },
                 { num: "2014", label: "Since" },
                 { num: "100%", label: "Volunteer Led" },
               ].map((s) => (

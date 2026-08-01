@@ -563,7 +563,6 @@ export default function Legends() {
           </Link>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
             <Link href="/" className={pathname === "/" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link href="/projects" className={pathname === "/projects" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Projects</Link>
             <Link href="/team" className={pathname === "/team" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>About</Link>
             <div className={`nav-dropdown${isDropdownOpen ? " open" : ""}`}>
               <button className={`nav-dropdown-trigger${pathname?.startsWith("/services") ? " active" : ""}`} onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
@@ -586,10 +585,11 @@ export default function Legends() {
             <Link href="/sports" className={pathname === "/sports" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Sports</Link>
             <Link href="/legends" className={pathname === "/legends" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Legends</Link>
             <Link href="/directory" className={pathname === "/directory" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Directory</Link>
+            <Link href="/achievers" className={pathname === "/achievers" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Achievers</Link>
             <Link href="/contact" className={pathname === "/contact" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </nav>
           <div className="nav-cta">
-            <Link href="/membership" className="btn btn-amber">Apply for membership <span className="arrow">→</span></Link>
+            <Link href="/membership" className="btn btn-amber">Apply for membership </Link>
             <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
               <span></span><span></span><span></span>
             </button>
@@ -599,11 +599,15 @@ export default function Legends() {
 
       {/* LEGENDS PAGE CONTENT */}
       <main className="legends-page" dir="rtl" lang="ur">
-        <div className="legends-hero reveal in">
-          <div className="wrap center">
-            <span className="eyebrow" style={{ justifyContent: "center" }}>ہمارے ہیرو</span>
-            <h1 className="h-sec">خرم ہٹھاڑ کے <em>عظیم لوگ۔</em></h1>
-            <p className="lead">ان عظیم شخصیات کو خراجِ تحسین جو اپنی نیک خدمات، قیادت اور عمر بھر کی لگن سے ہماری کمیونٹی پر ناقابلِ فراموش نقوش چھوڑ گئے۔</p>
+        <div className="legends-hero reveal in" style={{
+          background: "linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), url('/legends-hero-bg.png') center/cover no-repeat",
+          color: "white",
+          padding: "100px 0"
+        }}>
+          <div className="wrap center" style={{ position: "relative", zIndex: 2 }}>
+            <span className="eyebrow" style={{ justifyContent: "center", color: "var(--amber)", textShadow: "0 2px 4px rgba(0,0,0,0.8)" }}>ہمارے ہیرو</span>
+            <h1 className="h-sec" style={{ color: "#ffffff", textShadow: "0 2px 8px rgba(0,0,0,0.8)", marginTop: "10px", fontFamily: "inherit", fontWeight: "normal" }}>خرم ہٹھاڑ کے <em style={{ color: "var(--amber)", fontStyle: "normal" }}>عظیم لوگ۔</em></h1>
+            <p className="lead" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 6px rgba(0,0,0,0.8)", maxWidth: "700px", margin: "0 auto" }}>ان عظیم شخصیات کو خراجِ تحسین جو اپنی نیک خدمات، قیادت اور عمر بھر کی لگن سے ہماری کمیونٹی پر ناقابلِ فراموش نقوش چھوڑ گئے۔</p>
           </div>
         </div>
 

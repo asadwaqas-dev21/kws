@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Projects() {
+export default function Updates() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -58,7 +58,6 @@ export default function Projects() {
           </Link>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
             <Link href="/" className={pathname === "/" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link href="/projects" className={pathname === "/projects" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Projects</Link>
             <Link href="/team" className={pathname === "/team" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>About</Link>
             <div className={`nav-dropdown${isDropdownOpen ? " open" : ""}`}>
               <button className={`nav-dropdown-trigger${pathname?.startsWith("/services") ? " active" : ""}`} onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
@@ -81,10 +80,11 @@ export default function Projects() {
             <Link href="/sports" className={pathname === "/sports" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Sports</Link>
             <Link href="/legends" className={pathname === "/legends" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Legends</Link>
             <Link href="/directory" className={pathname === "/directory" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Directory</Link>
+            <Link href="/achievers" className={pathname === "/achievers" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Achievers</Link>
             <Link href="/contact" className={pathname === "/contact" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </nav>
           <div className="nav-cta">
-            <Link href="/membership" className="btn btn-amber">Apply for membership <span className="arrow">→</span></Link>
+            <Link href="/membership" className="btn btn-amber">Apply for membership </Link>
             <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
               <span></span><span></span><span></span>
             </button>
@@ -108,10 +108,10 @@ export default function Projects() {
           <div className="wrap" style={{ position: "relative", zIndex: 2 }}>
             <span className="eyebrow light" style={{ justifyContent: "center" }}>What We Do</span>
             <h1 style={{ fontFamily: "var(--serif)", fontSize: "clamp(2.5rem, 4vw, 3.5rem)", color: "#fff", margin: "16px 0", lineHeight: 1.1 }}>
-              Impacting lives, one <em>project</em> at a time.
+              Impacting lives, one <em>update</em> at a time.
             </h1>
             <p className="lead" style={{ margin: "0 auto", maxWidth: 640, color: "rgba(255,255,255,0.85)" }}>
-              From a clean glass of water to a child's first classroom — our projects are designed to meet people at their point of deepest need. Explore our ongoing and completed initiatives.
+              From a clean glass of water to a child's first classroom — our updates are designed to meet people at their point of deepest need. Explore our ongoing and completed initiatives.
             </p>
           </div>
         </div>
@@ -123,7 +123,7 @@ export default function Projects() {
               <div className="impact-item"><div className="i-num"><span className="countup" data-target="43">43</span></div><div className="i-lbl">Street Lights Installed</div></div>
               <div className="impact-item"><div className="i-num"><span className="countup" data-target="45">45</span></div><div className="i-lbl">Water Hand Pumps</div></div>
               <div className="impact-item"><div className="i-num"><span className="countup" data-target="2">2</span></div><div className="i-lbl">Water Filtration Plants</div></div>
-              <div className="impact-item"><div className="i-num"><span className="countup" data-target="20">20</span></div><div className="i-lbl">Social Welfare Projects</div></div>
+              <div className="impact-item"><div className="i-num"><span className="countup" data-target="20">20</span></div><div className="i-lbl">Social Welfare Updates</div></div>
             </div>
           </div>
         </div>
@@ -210,7 +210,7 @@ export default function Projects() {
                 <a href="https://www.youtube.com/@aGhaffar702" aria-label="YouTube"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z" /></svg></a>
               </div>
             </div>
-            <div className="foot-col"><h4>Our Work</h4><Link href="/projects">Clean Water</Link><Link href="/projects">Education</Link><Link href="/projects">Health</Link><Link href="/projects">Welfare</Link><Link href="/projects">Blood Donation</Link></div>
+            <div className="foot-col"><h4>Our Work</h4><Link href="/updates">Clean Water</Link><Link href="/updates">Education</Link><Link href="/updates">Health</Link><Link href="/updates">Welfare</Link><Link href="/updates">Blood Donation</Link></div>
             <div className="foot-col"><h4>Get Involved</h4><Link href="/contact">Donate Now</Link><Link href="/contact">Volunteer</Link><Link href="/membership">Become a Member</Link><Link href="/contact">Contact Us</Link></div>
             <div className="foot-col"><h4>Contact</h4><p>Village Khurram Hithar,<br />Tehsil &amp; Dist. Kasur,<br />Pakistan</p><p style={{ marginTop: '12px' }}><a href="tel:+923334178699">+92 333 4178 699</a><br /><a href="mailto:kwsociety2014@gmail.com">kwsociety2014@gmail.com</a></p></div>
           </div>

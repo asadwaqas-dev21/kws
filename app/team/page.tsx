@@ -137,7 +137,6 @@ export default function TeamPage() {
           </Link>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
             <Link href="/" className={pathname === "/" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link href="/projects" className={pathname === "/projects" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Projects</Link>
             <Link href="/team" className={pathname === "/team" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>About</Link>
             <div className={`nav-dropdown${isDropdownOpen ? " open" : ""}`}>
               <button className={`nav-dropdown-trigger${pathname?.startsWith("/services") ? " active" : ""}`} onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
@@ -160,10 +159,11 @@ export default function TeamPage() {
             <Link href="/sports" className={pathname === "/sports" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Sports</Link>
             <Link href="/legends" className={pathname === "/legends" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Legends</Link>
             <Link href="/directory" className={pathname === "/directory" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Directory</Link>
+            <Link href="/achievers" className={pathname === "/achievers" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Achievers</Link>
             <Link href="/contact" className={pathname === "/contact" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </nav>
           <div className="nav-cta">
-            <Link href="/membership" className="btn btn-amber">Apply for membership <span className="arrow">→</span></Link>
+            <Link href="/membership" className="btn btn-amber">Apply for membership </Link>
             <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
               <span></span><span></span><span></span>
             </button>
@@ -175,7 +175,7 @@ export default function TeamPage() {
 
         {/* ── HERO ── */}
         <div style={{
-          position: "relative", overflow: "hidden", padding: "70px 0 96px",
+          position: "relative", overflow: "hidden", padding: "20px 0 96px",
           background: "linear-gradient(160deg, var(--cream) 0%, var(--cream-2) 60%)",
           borderBottom: "1px solid var(--line)",
         }}>
@@ -185,7 +185,7 @@ export default function TeamPage() {
           <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(20,80,60,.04) 1.5px, transparent 1.5px)", backgroundSize: "30px 30px", pointerEvents: "none" }} />
 
           <div className="wrap" style={{ position: "relative", zIndex: 2 }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 56, alignItems: "center" }} className="tp-hero-grid">
+            <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 56, alignItems: "start" }} className="tp-hero-grid">
               {/* Copy */}
               <div style={{ maxWidth: 560 }}>
                 <span className="eyebrow">The people behind KWS</span>

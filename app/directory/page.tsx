@@ -210,7 +210,6 @@ export default function Directory() {
           </Link>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
             <Link href="/" className={pathname === "/" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link href="/projects" className={pathname === "/projects" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Projects</Link>
             <Link href="/team" className={pathname === "/team" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>About</Link>
             <div className={`nav-dropdown${isDropdownOpen ? " open" : ""}`}>
               <button className={`nav-dropdown-trigger${pathname?.startsWith("/services") ? " active" : ""}`} onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
@@ -233,10 +232,11 @@ export default function Directory() {
             <Link href="/sports" className={pathname === "/sports" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Sports</Link>
             <Link href="/legends" className={pathname === "/legends" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Legends</Link>
             <Link href="/directory" className={pathname === "/directory" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Directory</Link>
+            <Link href="/achievers" className={pathname === "/achievers" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Achievers</Link>
             <Link href="/contact" className={pathname === "/contact" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </nav>
           <div className="nav-cta">
-            <Link href="/membership" className="btn btn-amber">Apply for membership <span className="arrow">→</span></Link>
+            <Link href="/membership" className="btn btn-amber">Apply for membership </Link>
             <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
               <span></span><span></span><span></span>
             </button>
@@ -246,11 +246,15 @@ export default function Directory() {
 
       {/* DIRECTORY PAGE CONTENT */}
       <main className="dir-page">
-        <div className="dir-hero reveal in">
-          <div className="wrap center">
-            <span className="eyebrow" style={{ justifyContent: 'center' }}>Community Network</span>
-            <h1 className="h-sec">Village <em>Directory.</em></h1>
-            <p className="lead">Stay connected with the people of Khurram Hithar. Find contact information, blood groups, and professional roles within our community.</p>
+        <div className="dir-hero reveal in" style={{
+          background: "linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), url('/directory-hero-bg.png') center/cover no-repeat",
+          color: "white",
+          padding: "100px 0"
+        }}>
+          <div className="wrap center" style={{ position: "relative", zIndex: 2 }}>
+            <span className="eyebrow" style={{ justifyContent: 'center', color: "var(--amber)", textShadow: "0 2px 4px rgba(0,0,0,0.8)" }}>Community Network</span>
+            <h1 className="h-sec" style={{ color: "#ffffff", textShadow: "0 2px 8px rgba(0,0,0,0.8)", marginTop: "10px" }}>Village <em style={{ color: "var(--amber)" }}>Directory.</em></h1>
+            <p className="lead" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 6px rgba(0,0,0,0.8)", maxWidth: "700px", margin: "0 auto" }}>Stay connected with the people of Khurram Hithar. Find contact information, blood groups, and professional roles within our community.</p>
             
             <div className="dir-search">
               <div className="dir-search-inner">
@@ -282,27 +286,27 @@ export default function Directory() {
                   {filteredData.length > 0 ? (
                     filteredData.map((person) => (
                       <tr key={person.id}>
-                        <td><span className="dt-sr">{person.id}</span></td>
-                        <td>
+                        <td data-label="#"><span className="dt-sr">{person.id}</span></td>
+                        <td data-label="Name">
                           <div className="dt-name-col">
                             <div className="dir-avatar">{person.name.charAt(0)}</div>
                             <span className="dt-name">{person.name}</span>
                           </div>
                         </td>
-                        <td><span className="dt-role">{person.department || '—'}</span></td>
-                        <td><span className="dt-city">{person.city || '—'}</span></td>
-                        <td>
+                        <td data-label="Department / Profession"><span className="dt-role">{person.department || '—'}</span></td>
+                        <td data-label="Current City"><span className="dt-city">{person.city || '—'}</span></td>
+                        <td data-label="Contact Number">
                           <a href={`tel:${person.phone.replace(/\s+/g, '')}`} className="dt-phone">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                             {person.phone}
                           </a>
                         </td>
-                        <td>
+                        <td data-label="Blood Group">
                           {person.bloodGroup
                             ? <span className={`dt-blood bg-${person.bloodGroup.replace(/[+-]/g, '')}`}>{person.bloodGroup}</span>
                             : <span className="dt-blood-na">—</span>}
                         </td>
-                        <td>
+                        <td data-label="Last Donated">
                           {person.lastDonated
                             ? <span className={person.lastDonated === 'Never Donated' ? 'dt-donated-never' : 'dt-donated'}>{person.lastDonated}</span>
                             : <span className="dt-donated-na">—</span>}

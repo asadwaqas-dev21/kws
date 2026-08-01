@@ -76,7 +76,6 @@ export default function Home() {
           </a>
           <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
             <Link href="/" className={pathname === "/" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link href="/projects" className={pathname === "/projects" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Projects</Link>
             <a href="/team" className={pathname === "/team" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>About</a>
             <div className={`nav-dropdown${isDropdownOpen ? " open" : ""}`}>
               <button className={`nav-dropdown-trigger${pathname?.startsWith("/services") ? " active" : ""}`} onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
@@ -99,10 +98,11 @@ export default function Home() {
             <Link href="/sports" className={pathname === "/sports" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Sports</Link>
             <a href="/legends" className={pathname === "/legends" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Legends</a>
             <a href="/directory" className={pathname === "/directory" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Directory</a>
+            <Link href="/achievers" className={pathname === "/achievers" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Achievers</Link>
             <Link href="/contact" className={pathname === "/contact" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </nav>
           <div className="nav-cta">
-            <Link href="/membership" className="btn btn-amber">Apply for membership <span className="arrow">→</span></Link>
+            <Link href="/membership" className="btn btn-amber">Apply for membership </Link>
             <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
               <span></span><span></span><span></span>
             </button>
@@ -119,12 +119,12 @@ export default function Home() {
             <p className="lead">Khurram Welfare Society is a volunteer-led NGO in Kasur providing clean water, education support, healthcare assistance, blood donation services, monthly ration support and youth development programs.</p>
             <div className="hero-actions">
               <a href="#causes" className="btn btn-amber hero-donate-btn">Donate Now <span className="arrow">→</span></a>
-              <Link href="/membership" className="btn btn-amber hero-member-btn">Apply for membership <span className="arrow">→</span></Link>
+              <Link href="/membership" className="btn btn-amber hero-member-btn">Apply for membership </Link>
               <Link href="/services/clean-water" className="btn btn-ghost">Explore our clean water projects in Kasur</Link>
             </div>
             <div className="hero-mini">
               <div><div className="m-num">2014</div><div className="m-lbl">Serving since</div></div>
-              <div><div className="m-num">110<span style={{ color: 'var(--amber)' }}>+</span></div><div className="m-lbl">Projects completed</div></div>
+              <div><div className="m-num">110<span style={{ color: 'var(--amber)' }}>+</span></div><div className="m-lbl">Updates completed</div></div>
               <div><div className="m-num">100%</div><div className="m-lbl">Volunteer-led</div></div>
             </div>
           </div>
@@ -267,8 +267,8 @@ export default function Home() {
           </div>
           <div className="involve-grid">
             <div className="inv reveal in"><div className="inv-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.5-1.5 3-3.3 3-5.5A3.5 3.5 0 0 0 12 6a3.5 3.5 0 0 0-10 2.5C2 10.7 3.5 12.5 5 14l7 7z" /></svg></div><div className="h3-style" style={{fontSize: "1.5rem", fontWeight: "bold", margin: "10px 0"}}>Donate</div><p>Support our causes with a one-time or monthly gift.</p><a href="#causes">Give now →</a></div>
-            <div className="inv reveal in"><div className="inv-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg></div><div className="h3-style" style={{fontSize: "1.5rem", fontWeight: "bold", margin: "10px 0"}}>Volunteer</div><p>Give your time and skills to projects on the ground.</p><a href="#contact">Join us →</a></div>
-            <div className="inv reveal in"><div className="inv-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg></div><div className="h3-style" style={{fontSize: "1.5rem", fontWeight: "bold", margin: "10px 0"}}>Membership</div><p>Become an official member of the society.</p><a href="#contact">Apply →</a></div>
+            <div className="inv reveal in"><div className="inv-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg></div><div className="h3-style" style={{fontSize: "1.5rem", fontWeight: "bold", margin: "10px 0"}}>Volunteer</div><p>Give your time and skills to projects on the ground.</p><Link href="/membership">Join us →</Link></div>
+            <div className="inv reveal in"><div className="inv-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg></div><div className="h3-style" style={{fontSize: "1.5rem", fontWeight: "bold", margin: "10px 0"}}>Membership</div><p>Become an official member of the society.</p><Link href="/membership">Apply →</Link></div>
             <div className="inv reveal in"><div className="inv-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3s6 4.5 6 10a6 6 0 0 1-12 0c0-5.5 6-10 6-10z" /></svg></div><div className="h3-style" style={{fontSize: "1.5rem", fontWeight: "bold", margin: "10px 0"}}>Donate Blood</div><p>Register as a donor and help save lives locally.</p><a href="#contact">Register →</a></div>
           </div>
         </div>
