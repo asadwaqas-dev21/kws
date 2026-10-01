@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, createPageMetadata } from "@/lib/seo";
+import "./sports.css";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Khurram Sports Wing | Youth Sports Development in Kasur",

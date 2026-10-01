@@ -1,347 +1,239 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 
+// Photos that aren't in /public yet fall back to initials.
 const CRICKET_LEGENDS = [
-  { name: "Master Muhammad Mudassir", img: "", sport: "Cricket" },
-  { name: "Abdul Hameed", img: "", sport: "Cricket" },
-  { name: "Muhammad Saleem Akhtar", img: "", sport: "Cricket" },
-  { name: "Abdul Razzaq", img: "", sport: "Cricket" },
-  { name: "Abdul Sattar Gulam Muhammad", img: "", sport: "Cricket" },
-  { name: "Rafee Ahmad Mehmood", img: "", sport: "Cricket" },
-  { name: "PT Sadiq Ameen", img: "", sport: "Cricket" },
-  { name: "Muhammad Saleem Ahmad", img: "/Muhammad Saleem Ahmad.jpg", sport: "Cricket" },
-  { name: "Baoo Muhammad Shareef", img: "", sport: "Cricket" },
-  { name: "Abdul Rasheed Matee", img: "", sport: "Cricket" },
-  { name: "Yaseen Munir Ahmad", img: "", sport: "Cricket" },
-  { name: "Muhammad Shoaib Gori", img: "", sport: "Cricket" },
-  { name: "Muhammad Amin Munir", img: "", sport: "Cricket" },
-  { name: "Siddique Asim", img: "", sport: "Cricket" },
-  { name: "Muhammad Zulfiqar Gulam Muhammad", img: "", sport: "Cricket" },
-  { name: "Faisal Ramzan", img: "", sport: "Cricket" },
-  { name: "Maqsood Muhammad Hussain", img: "", sport: "Cricket" },
-  { name: "Master Abdul Sattar", img: "", sport: "Cricket" },
-  { name: "Muhammad Shakeel Ashraf", img: "", sport: "Cricket" },
-  { name: "Irfan Amin", img: "", sport: "Cricket" },
-  { name: "Hafiz Abid Khushi Muhammad", img: "", sport: "Cricket" },
-  { name: "Imran Shafee", img: "", sport: "Cricket" },
-  { name: "Usman Tufail", img: "/usman tufail.png", sport: "Cricket" },
-  { name: "M Nadeem ND", img: "/Nadeem ND.png", sport: "Cricket" },
-  { name: "Farakh Sohail Rabbani", img: "/farakh sohail.png", sport: "Cricket" },
-  { name: "Qaisar Ramzan", img: "/qaisar.png", sport: "Cricket" },
-  { name: "Ashfaq Aslam", img: "/ashfaq.png", sport: "Cricket" },
-  { name: "Muhammad Dawood Jonti", img: "", sport: "Cricket" },
-  { name: "Asad Waqas", img: "/asad.png", sport: "Cricket" },
-  { name: "Ahmad Waqas", img: "/ahmad waqas.png", sport: "Cricket" },
-  { name: "Masab Khalil", img: "/masab.png", sport: "Cricket" }
+  { name: "Master Muhammad Mudassir", img: "" },
+  { name: "Abdul Hameed", img: "" },
+  { name: "Muhammad Saleem Akhtar", img: "" },
+  { name: "Abdul Razzaq", img: "" },
+  { name: "Abdul Sattar Gulam Muhammad", img: "" },
+  { name: "Rafee Ahmad Mehmood", img: "" },
+  { name: "PT Sadiq Ameen", img: "" },
+  { name: "Muhammad Saleem Ahmad", img: "/Muhammad Saleem Ahmad.jpg" },
+  { name: "Baoo Muhammad Shareef", img: "" },
+  { name: "Abdul Rasheed Matee", img: "" },
+  { name: "Yaseen Munir Ahmad", img: "" },
+  { name: "Muhammad Shoaib Gori", img: "" },
+  { name: "Muhammad Amin Munir", img: "" },
+  { name: "Siddique Asim", img: "" },
+  { name: "Muhammad Zulfiqar Gulam Muhammad", img: "" },
+  { name: "Faisal Ramzan", img: "" },
+  { name: "Maqsood Muhammad Hussain", img: "" },
+  { name: "Master Abdul Sattar", img: "" },
+  { name: "Muhammad Shakeel Ashraf", img: "" },
+  { name: "Irfan Amin", img: "" },
+  { name: "Hafiz Abid Khushi Muhammad", img: "" },
+  { name: "Imran Shafee", img: "" },
+  { name: "Usman Tufail", img: "/usman tufail.png" },
+  { name: "M Nadeem ND", img: "/Nadeem ND.png" },
+  { name: "Farakh Sohail Rabbani", img: "" },
+  { name: "Qaisar Ramzan", img: "" },
+  { name: "Ashfaq Aslam", img: "/ashfaq.png" },
+  { name: "Muhammad Dawood Jonti", img: "" },
+  { name: "Asad Waqas", img: "/asad.png" },
+  { name: "Ahmad Waqas", img: "/ahmad waqas.png" },
+  { name: "Masab Khalil", img: "" },
 ];
 
+const stats = [
+  { num: "10+", label: "Tournaments Hosted" },
+  { num: "500+", label: "Athletes Engaged" },
+  { num: "5", label: "Active Teams" },
+  { num: "1", label: "Local Ground Upgraded" },
+];
+
+const sports = [
+  {
+    title: "Tape Ball Cricket",
+    color: "#CE8A1F",
+    bg: "rgba(232,163,61,.14)",
+    text: "The heartbeat of Pakistan. We organize grand tape ball tournaments with cash prizes, trophies, and proper umpiring to bring out the best local cricketers.",
+    icon: <><circle cx="12" cy="12" r="10" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /><path d="M2 12h20" /></>,
+  },
+  {
+    title: "Volleyball",
+    color: "#2F8F6B",
+    bg: "rgba(47,143,107,.12)",
+    text: "Fostering teamwork and agility. We organize thrilling local volleyball tournaments and provide high-quality nets and balls to encourage youth participation in the sport.",
+    icon: <><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></>,
+  },
+  {
+    title: "Badminton",
+    color: "#2A4365",
+    bg: "rgba(42,67,101,.12)",
+    text: "Promoting speed and precision. We support community badminton courts with rackets, shuttlecocks, and proper lighting so players can enjoy the game even after sunset.",
+    icon: <><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></>,
+  },
+];
+
+const Check = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+);
+
+const Arrow = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+);
+
+const initials = (name: string) =>
+  name.split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+
 export default function Sports() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-      {/* TOP BAR */}
-      <div className="topbar">
-        <div className="wrap">
-          <div className="tb-info">
-            <a href="mailto:kwsociety2014@gmail.com">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
-              kwsociety2014@gmail.com
-            </a>
-            <a href="tel:+923334178699">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-              +92 333 4178 699
-            </a>
-            <a href="#" className="ci-loc">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
-              Khurram, Kasur, Pakistan
-            </a>
-          </div>
-          <div className="tb-social">
-            <a href="https://www.facebook.com/KWSociety/" aria-label="Facebook">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" /></svg>
-            </a>
-            <a href="https://www.youtube.com/@aGhaffar702" aria-label="YouTube">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z" /></svg>
-            </a>
-          </div>
-        </div>
-      </div>
+    <div className="sp-page">
+      <SiteHeader />
 
-      {/* HEADER */}
-      <header id="header" className={isScrolled ? "scrolled" : ""}>
-        <div className="wrap nav">
-          <Link href="/" className="brand" aria-label="Khurram Welfare Society home">
-            <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
-            <span className="brand-text">
-              <span className="brand-name">Khurram Welfare Society</span>
-              <span className="brand-sub">Serving Humanity Since 2012</span>
-            </span>
-          </Link>
-          <nav className={`nav-links ${isMenuOpen ? "open" : ""}`} id="navLinks">
-            <Link href="/" className={pathname === "/" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link href="/team" className={pathname === "/team" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>About</Link>
-            <div className={`nav-dropdown${isDropdownOpen ? " open" : ""}`}>
-              <button className={`nav-dropdown-trigger${pathname?.startsWith("/services") ? " active" : ""}`} onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-                Services
-                <svg className="dd-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg>
-              </button>
-              <div className="nav-dropdown-menu">
-                <Link href="/services/clean-water" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(47,143,107,.1)", color: "#2F8F6B" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2s7 7.4 7 12a7 7 0 0 1-14 0c0-4.6 7-12 7-12z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Clean Water</span><span className="nav-dd-sub">Hand pumps & filtration</span></div></Link>
-                <Link href="/services/education" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(232,163,61,.1)", color: "#CE8A1F" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 10L12 5 2 10l10 5 10-5z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Education</span><span className="nav-dd-sub">Scholarships & supplies</span></div></Link>
-                <Link href="/services/health" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(232,93,93,.1)", color: "#E85D5D" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Health & Medical</span><span className="nav-dd-sub">Free camps & aid</span></div></Link>
-                <Link href="/services/street-lights" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(206,138,31,.1)", color: "#CE8A1F" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2v6M12 8a4 4 0 0 1 4 4v8H8v-8a4 4 0 0 1 4-4z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Street Lights</span><span className="nav-dd-sub">43+ lights installed</span></div></Link>
-                <Link href="/services/welfare" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(20,80,60,.1)", color: "#14503C" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Social Welfare</span><span className="nav-dd-sub">Rations & relief</span></div></Link>
-                <Link href="/services/blood-donation" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(192,57,43,.1)", color: "#C0392B" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 3s6 4.5 6 10a6 6 0 0 1-12 0c0-5.5 6-10 6-10z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Blood Donation</span><span className="nav-dd-sub">Donor network</span></div></Link>
-                <Link href="/services/Muqaddas-boxes" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(142,68,173,.1)", color: "#8E44AD" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M20 8v13H4V8" /><path d="M2 3h20l-2 5H4z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Muqaddas Boxes</span><span className="nav-dd-sub">Community giving</span></div></Link>
-                <Link href="/services/sports" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(41,128,185,.1)", color: "#2980B9" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Sports & Youth</span><span className="nav-dd-sub">Tournaments & events</span></div></Link>
-                <div className="nav-dd-sep" />
-                <Link href="/services" className="nav-dd-viewall" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}>View All Services →</Link>
-              </div>
-            </div>
-            <Link href="/sports" className={pathname === "/sports" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Sports</Link>
-            <Link href="/legends" className={pathname === "/legends" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Legends</Link>
-            <Link href="/directory" className={pathname === "/directory" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Directory</Link>
-            <Link href="/achievers" className={pathname === "/achievers" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Achievers</Link>
-            <Link href="/contact" className={pathname === "/contact" ? "active" : ""} onClick={() => setIsMenuOpen(false)}>Contact</Link>
-          </nav>
-          <div className="nav-cta">
-            <Link href="/membership" className="btn btn-amber">Apply for membership </Link>
-            <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
-              <span></span><span></span><span></span>
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <main style={{ flexGrow: 1, background: "var(--cream)" }}>
-
-        {/* HERO SECTION */}
-        <div style={{
-          position: "relative", overflow: "hidden", padding: "120px 0 100px",
-          background: "linear-gradient(rgba(26, 54, 93, 0.75), rgba(42, 67, 101, 0.85)), url('/sports-hero-bg.png') center/cover no-repeat",
-          color: "white",
-          textAlign: "center"
-        }}>
-          {/* decorative athletic lines */}
-          <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, opacity: 0.1, backgroundImage: "linear-gradient(45deg, transparent 48%, white 48%, white 52%, transparent 52%)", backgroundSize: "60px 60px", pointerEvents: "none" }} />
-          <div style={{ position: "absolute", bottom: -150, right: -100, width: 400, height: 400, borderRadius: "50%", border: "40px solid rgba(255,255,255,0.05)", pointerEvents: "none" }} />
-
-          <div className="wrap" style={{ position: "relative", zIndex: 2 }}>
-            <span className="eyebrow light" style={{ justifyContent: "center", color: "var(--amber)" }}>KWS Sports Wing</span>
-            <h1 style={{ fontFamily: "var(--serif)", fontSize: "clamp(3rem, 5vw, 4.5rem)", color: "#fff", margin: "16px 0", lineHeight: 1.1 }}>
-              Khurram Sports Wing: Youth Sports Development in Kasur
-            </h1>
-            <p className="lead" style={{ margin: "0 auto", maxWidth: 700, color: "rgba(255,255,255,0.85)", fontSize: "1.2rem" }}>
+      <main className="sp-main">
+        {/* HERO */}
+        <section className="sp-hero">
+          <div className="wrap">
+            <span className="eyebrow sp-anim">KWS Sports Wing</span>
+            <h1 className="sp-anim d1">Khurram Sports Wing: <em>Youth Sports</em> Development in Kasur</h1>
+            <p className="sp-anim d2">
               Khurram Sports Wing is the sports and youth development initiative of Khurram Welfare Society. We organize cricket, volleyball, badminton and community sports events for young athletes in Khurram Hithar and surrounding areas of Kasur.
             </p>
+            <div className="sp-hero-actions sp-anim d3">
+              <Link href="/sports/kws-super-league-2026" className="btn btn-amber">KWS Super League 2026 <Arrow /></Link>
+              <Link href="/contact" className="btn btn-ghost on-dark">Collaborate With Us</Link>
+            </div>
+          </div>
+        </section>
+
+        <div className="wrap">
+          <div className="sp-stats">
+            {stats.map((s) => (
+              <div key={s.label} className="sp-stat">
+                <b>{s.num}</b>
+                <span>{s.label}</span>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* STATS STRIP */}
-        <div style={{ background: "var(--amber)", color: "var(--ink)", padding: "40px 0", marginTop: "-30px", position: "relative", zIndex: 10 }} className="stats-strip">
-          <div className="wrap stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "30px", textAlign: "center" }}>
-            <div>
-              <div style={{ fontSize: "3rem", fontWeight: "bold", lineHeight: 1 }}>10+</div>
-              <div style={{ fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, marginTop: 5, fontSize: "0.9rem" }}>Tournaments Hosted</div>
-            </div>
-            <div>
-              <div style={{ fontSize: "3rem", fontWeight: "bold", lineHeight: 1 }}>500+</div>
-              <div style={{ fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, marginTop: 5, fontSize: "0.9rem" }}>Athletes Engaged</div>
-            </div>
-            <div>
-              <div style={{ fontSize: "3rem", fontWeight: "bold", lineHeight: 1 }}>5</div>
-              <div style={{ fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, marginTop: 5, fontSize: "0.9rem" }}>Active Teams</div>
-            </div>
-            <div>
-              <div style={{ fontSize: "3rem", fontWeight: "bold", lineHeight: 1 }}>1</div>
-              <div style={{ fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, marginTop: 5, fontSize: "0.9rem" }}>Local Ground Upgraded</div>
-            </div>
-          </div>
-        </div>
-
-        {/* MISSION SECTION */}
-        <section style={{ padding: "100px 0", background: "#fff" }} className="mission-sec">
-          <div className="wrap sports-mission" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "center" }}>
+        {/* VISION */}
+        <section className="sp-sec">
+          <div className="wrap sp-vision">
             <div>
               <span className="eyebrow">Our Vision</span>
-              <h2 style={{ fontSize: "2.5rem", marginBottom: "20px", lineHeight: 1.2 }}>Channeling youth energy into <em style={{ color: "var(--green)" }}>positive action.</em></h2>
-              <p style={{ fontSize: "1.1rem", lineHeight: 1.7, color: "var(--muted)", marginBottom: "20px" }}>
+              <h2>Channeling youth energy into <em>positive action.</em></h2>
+              <p>
                 In rural communities, youth often lack access to structured recreational activities. Khurram Welfare Society recognizes that an active youth is the foundation of a progressive society.
               </p>
-              <p style={{ fontSize: "1.1rem", lineHeight: 1.7, color: "var(--muted)", marginBottom: "30px" }}>
-                By organizing cricket, football, and kabaddi tournaments, we provide a safe, competitive environment where local talent can shine, keeping the younger generation away from negative influences and fostering a spirit of brotherhood.
+              <p>
+                By organizing cricket, volleyball, and badminton tournaments, we provide a safe, competitive environment where local talent can shine, keeping the younger generation away from negative influences and fostering a spirit of brotherhood.
               </p>
-              <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "15px" }}>
-                <li style={{ display: "flex", gap: "15px", alignItems: "center", fontSize: "1.1rem", fontWeight: 500 }}>
-                  <div style={{ background: "rgba(76,175,136,.1)", color: "var(--green)", padding: "8px", borderRadius: "50%" }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                  </div>
-                  Promoting physical and mental health
-                </li>
-                <li style={{ display: "flex", gap: "15px", alignItems: "center", fontSize: "1.1rem", fontWeight: 500 }}>
-                  <div style={{ background: "rgba(76,175,136,.1)", color: "var(--green)", padding: "8px", borderRadius: "50%" }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                  </div>
-                  Discovering local athletic talent
-                </li>
-                <li style={{ display: "flex", gap: "15px", alignItems: "center", fontSize: "1.1rem", fontWeight: 500 }}>
-                  <div style={{ background: "rgba(76,175,136,.1)", color: "var(--green)", padding: "8px", borderRadius: "50%" }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                  </div>
-                  Providing kits and sports equipment to teams
-                </li>
+              <ul className="sp-checks">
+                {["Promoting physical and mental health", "Discovering local athletic talent", "Providing kits and sports equipment to teams"].map((t) => (
+                  <li key={t}><i><Check /></i>{t}</li>
+                ))}
               </ul>
             </div>
-            <div style={{ position: "relative" }}>
-              <div style={{ background: "var(--cream)", borderRadius: "24px", overflow: "hidden", aspectRatio: "4/3", boxShadow: "var(--shadow-soft)" }}>
-                <Image src="/sports.jpg" alt="KWS Sports Event" style={{ width: "100%", height: "100%", objectFit: "cover" }} width={800} height={800} />
+            <div className="sp-photo">
+              <div className="sp-photo-frame">
+                <Image src="/sports.jpg" alt="KWS sports event" fill sizes="(max-width: 960px) 90vw, 480px" style={{ objectFit: "cover" }} />
               </div>
-              <div style={{ position: "absolute", bottom: -20, left: -20, background: "var(--green)", color: "#fff", padding: "20px", borderRadius: "16px", boxShadow: "var(--shadow-lift)" }}>
-                <div style={{ fontSize: "1.5rem", fontWeight: "bold" }}>KWS Super League</div>
-                <div style={{ fontSize: "0.9rem", opacity: 0.9 }}>Annual Tape Ball Cricket</div>
+              <div className="sp-badge">
+                <b>KWS Super League</b>
+                <span>Annual Tape Ball Cricket</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* SPORTS WE SUPPORT */}
-        <section style={{ padding: "100px 0", background: "var(--cream-2)" }}>
+        {/* SPORTS */}
+        <section className="sp-sec sp-alt">
           <div className="wrap">
-            <div className="sec-head center">
-              <span className="eyebrow" style={{ justifyContent: "center" }}>Activities</span>
+            <div className="sp-head">
+              <span className="eyebrow">Activities</span>
               <h2 className="h-sec">Sports we <em>actively support.</em></h2>
             </div>
-            <div className="sports-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "30px", marginTop: "40px" }}>
-
-              {/* Cricket */}
-              <div style={{ background: "#fff", borderRadius: "20px", padding: "40px 30px", textAlign: "center", boxShadow: "var(--shadow-soft)", transition: "transform 0.3s ease" }} className="hover-lift">
-                <div style={{ width: "80px", height: "80px", borderRadius: "50%", background: "rgba(232,163,61,.1)", color: "var(--amber)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /><path d="M2 12h20" /></svg>
-                </div>
-                <h3 style={{ fontSize: "1.5rem", marginBottom: "15px" }}>Tape Ball Cricket</h3>
-                <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>The heartbeat of Pakistan. We organize grand tape ball tournaments with cash prizes, trophies, and proper umpiring to bring out the best local cricketers.</p>
-              </div>
-
-              {/* Kabaddi */}
-              <div style={{ background: "#fff", borderRadius: "20px", padding: "40px 30px", textAlign: "center", boxShadow: "var(--shadow-soft)", transition: "transform 0.3s ease" }} className="hover-lift">
-                <div style={{ width: "80px", height: "80px", borderRadius: "50%", background: "rgba(76,175,136,.1)", color: "var(--green)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
-                </div>
-                <h3 style={{ fontSize: "1.5rem", marginBottom: "15px" }}>Volleyball</h3>
-                <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>Fostering teamwork and agility. We organize thrilling local volleyball tournaments and provide high-quality nets and balls to encourage youth participation in the sport.</p>
-              </div>
-
-              {/* Football */}
-              <div style={{ background: "#fff", borderRadius: "20px", padding: "40px 30px", textAlign: "center", boxShadow: "var(--shadow-soft)", transition: "transform 0.3s ease" }} className="hover-lift">
-                <div style={{ width: "80px", height: "80px", borderRadius: "50%", background: "rgba(42,67,101,.1)", color: "#2A4365", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg>
-                </div>
-                <h3 style={{ fontSize: "1.5rem", marginBottom: "15px" }}>Badminton</h3>
-                <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>Promoting speed and precision. We support community badminton courts with rackets, shuttlecocks, and proper lighting so players can enjoy the game even after sunset.</p>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* LEGEND PLAYERS */}
-        <section style={{ padding: "100px 0", background: "#fff" }}>
-          <div className="wrap">
-            <div className="sec-head center">
-              <span className="eyebrow" style={{ justifyContent: "center" }}>Our Stars</span>
-              <h2 className="h-sec"><em>Sports Legends.</em></h2>
-              <p className="lead" style={{ margin: "0 auto", maxWidth: "600px" }}>Celebrating the outstanding athletes who have brought pride to Khurram Hithar through their dedication to sports.</p>
-            </div>
-
-            <div className="legends-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: "20px", marginTop: "40px" }}>
-              {CRICKET_LEGENDS.map((player) => (
-                <div key={player.name} style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
-                  <div style={{ height: "160px", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, var(--leaf), var(--pine))" }}>
-                    {player.img ? (
-                      <Image src={player.img} alt={player.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} onError={(e) => { e.currentTarget.style.display = "none"; }} width={800} height={800} />
-                    ) : (
-                      <div style={{ color: "white", fontSize: "2rem", fontWeight: "bold", opacity: 0.8 }}>
-                        {player.name.split(" ").map(w => w[0]).join("").substring(0, 2).toUpperCase()}
-                      </div>
-                    )}
+            <div className="sp-cards">
+              {sports.map((s, i) => (
+                <article key={s.title} className="sp-card" style={{ "--c": s.color, "--cbg": s.bg } as React.CSSProperties}>
+                  <span className="sp-card-num">{String(i + 1).padStart(2, "0")}</span>
+                  <div className="sp-card-ic">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{s.icon}</svg>
                   </div>
-                  <div style={{ padding: "12px 10px" }}>
-                    <h3 style={{ fontSize: "1.05rem", margin: "0 0 4px 0", lineHeight: 1.2 }}>{player.name}</h3>
-                    <div style={{ color: "var(--green)", fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: 0.5 }}>{player.sport}</div>
-                  </div>
-                </div>
+                  <h3>{s.title}</h3>
+                  <p>{s.text}</p>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section style={{ padding: "80px 0", background: "var(--pine-deep)", color: "white", textAlign: "center" }} className="cta-sec">
+        {/* FLAGSHIP EVENT */}
+        <section className="sp-sec">
           <div className="wrap">
-            <h2 style={{ fontSize: "2.5rem", marginBottom: "20px" }}>Want to organize a tournament?</h2>
-            <p style={{ fontSize: "1.2rem", opacity: 0.8, maxWidth: "600px", margin: "0 auto 30px" }}>If you have a team or want to propose a sports event in your area, reach out to us. We are always looking to sponsor and support local sports initiatives.</p>
-            <Link href="/contact" className="btn btn-amber" style={{ padding: "16px 40px", fontSize: "1.1rem" }}>Contact Us to Collaborate</Link>
+            <div className="sp-event">
+              <div>
+                <span className="eyebrow">Flagship Event</span>
+                <h2>KWS Super League 2026</h2>
+                <p>The biggest annual tape ball cricket tournament in Kasur, bringing together local talent for a thrilling showcase of sportsmanship and youth development.</p>
+                <Link href="/sports/kws-super-league-2026" className="btn btn-amber">View Tournament Details <Arrow /></Link>
+              </div>
+              <div className="sp-event-facts">
+                {[
+                  { k: "Format", v: "Tape Ball T10", d: <><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></> },
+                  { k: "Teams", v: "12 Local Clubs", d: <><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /></> },
+                  { k: "Venue", v: "Khurram Ground", d: <><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></> },
+                ].map((f) => (
+                  <div key={f.k} className="sp-fact">
+                    <i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{f.d}</svg></i>
+                    <div><small>{f.k}</small><b>{f.v}</b></div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
+        {/* LEGENDS */}
+        <section className="sp-sec sp-alt">
+          <div className="wrap">
+            <div className="sp-head">
+              <span className="eyebrow">Our Stars</span>
+              <h2 className="h-sec"><em>Sports Legends.</em></h2>
+              <p className="lead">Celebrating the outstanding athletes who have brought pride to Khurram Hithar through their dedication to sports.</p>
+            </div>
+            <div className="sp-legends">
+              {CRICKET_LEGENDS.map((p) => (
+                <div key={p.name} className="sp-player">
+                  <div className="sp-player-img">
+                    {p.img ? (
+                      <Image src={p.img} alt={p.name} fill sizes="200px" style={{ objectFit: "cover", objectPosition: "top" }} />
+                    ) : (
+                      <span className="sp-initials">{initials(p.name)}</span>
+                    )}
+                  </div>
+                  <div className="sp-player-body">
+                    <h3>{p.name}</h3>
+                    <span>Cricket</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="sp-more">
+              <Link href="/legends" className="btn btn-green">Meet Our Community Legends <Arrow /></Link>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="sp-cta-wrap" style={{ paddingTop: 96 }}>
+          <div className="wrap">
+            <div className="sp-cta">
+              <span className="eyebrow" style={{ color: "var(--amber)", justifyContent: "center" }}>Play with us</span>
+              <h2>Want to organize a tournament?</h2>
+              <p>If you have a team or want to propose a sports event in your area, reach out to us. We are always looking to sponsor and support local sports initiatives.</p>
+              <Link href="/contact" className="btn btn-amber">Contact Us to Collaborate <Arrow /></Link>
+            </div>
+          </div>
+        </section>
       </main>
 
-      {/* FOOTER */}
-      <footer className="footer">
-        <div className="wrap">
-          <div className="foot-top">
-            <div className="foot-brand">
-              <Link href="/" className="brand">
-                <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
-                <span className="brand-text">
-                  <span className="brand-name" style={{ color: '#fff' }}>Khurram Welfare Society</span>
-                  <span className="brand-sub">Serving Humanity Since 2012</span>
-                </span>
-              </Link>
-              <p>Serving humanity without difference of religion, creed or caste.</p>
-              <div className="foot-social">
-                <a href="https://www.facebook.com/KWSociety/" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" /></svg></a>
-                <a href="https://www.youtube.com/@aGhaffar702" aria-label="YouTube"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z" /></svg></a>
-              </div>
-            </div>
-            <div className="foot-col"><h4>Our Work</h4><Link href="/updates">Clean Water</Link><Link href="/updates">Education</Link><Link href="/updates">Health</Link><Link href="/updates">Welfare</Link><Link href="/updates">Blood Donation</Link></div>
-            <div className="foot-col"><h4>Get Involved</h4><Link href="/contact">Donate Now</Link><Link href="/contact">Volunteer</Link><Link href="/membership">Become a Member</Link><Link href="/contact">Contact Us</Link></div>
-            <div className="foot-col"><h4>Contact</h4><p>Village Khurram Hithar,<br />Tehsil &amp; Dist. Kasur,<br />Pakistan</p><p style={{ marginTop: '12px' }}><a href="tel:+923334178699">+92 333 4178 699</a><br /><a href="mailto:kwsociety2014@gmail.com">kwsociety2014@gmail.com</a></p></div>
-          </div>
-          <div className="foot-bot">
-            <div>&copy; {new Date().getFullYear()} Khurram Welfare Society. All rights reserved.</div>
-            <div className="fb-links"><Link href="/">Privacy Policy</Link><Link href="/">Terms of Service</Link></div>
-          </div>
-        </div>
-      </footer>
-      <style>{`
-        .hover-lift:hover { transform: translateY(-8px); }
-        @media(max-width: 860px) {
-          .sports-mission { grid-template-columns: 1fr !important; gap: 40px !important; }
-        }
-        @media(max-width: 600px) {
-          .mission-sec, .cta-sec { padding: 60px 0 !important; }
-          .stats-strip { padding: 30px 0 !important; }
-          .stats-grid { grid-template-columns: 1fr 1fr !important; gap: 20px !important; }
-          .stats-grid > div > div:first-child { font-size: 2.2rem !important; }
-          .sports-grid { grid-template-columns: 1fr !important; }
-          .legends-grid { grid-template-columns: 1fr 1fr !important; gap: 15px !important; }
-        }
-      `}</style>
+      <SiteFooter />
     </div>
   );
 }

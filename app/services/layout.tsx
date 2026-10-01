@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, createPageMetadata, siteConfig } from "@/lib/seo";
 import { services } from "./data";
+import "./services.css";
 
 const description =
   "Explore Khurram Welfare Society services: clean water, education, health, street lights, social welfare, blood donation, Muqaddas boxes, and youth sports in Kasur.";
