@@ -159,7 +159,7 @@ export default function Updates() {
             </div>
             <div className="causes-grid">
               <div className="cause">
-                <div className="cause-img"><span className="cause-chip">Clean Water</span><Image src="/handpump.jpg" alt="Hand pump" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} /></div>
+                <div className="cause-img"><span className="cause-chip">Clean Water</span><Image src="/handpump.jpg" alt="Hand pump" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} width={800} height={800} /></div>
                 <div className="cause-body">
                   <h3>Donate One Hand Pump</h3>
                   <div className="cause-meta"><span className="goal">Goal <b>PKR 55,000</b></span><span className="goal">Raised PKR 0</span></div>
@@ -169,7 +169,7 @@ export default function Updates() {
                 </div>
               </div>
               <div className="cause">
-                <div className="cause-img"><span className="cause-chip">Welfare</span><Image src="/welfare.jpg" alt="Monthly rashan" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} /></div>
+                <div className="cause-img"><span className="cause-chip">Welfare</span><Image src="/welfare.jpg" alt="Monthly rashan" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} width={800} height={800} /></div>
                 <div className="cause-body">
                   <h3>One Family Monthly Rashan</h3>
                   <div className="cause-meta"><span className="goal">Goal <b>PKR 11,000</b></span><span className="goal">Raised PKR 0</span></div>
@@ -179,7 +179,7 @@ export default function Updates() {
                 </div>
               </div>
               <div className="cause">
-                <div className="cause-img"><span className="cause-chip">Welfare</span><Image src="/welfare2.jpg" alt="Sponsor a marriage" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} /></div>
+                <div className="cause-img"><span className="cause-chip">Welfare</span><Image src="/welfare2.jpg" alt="Sponsor a marriage" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} width={800} height={800} /></div>
                 <div className="cause-body">
                   <h3>Sponsor One Marriage</h3>
                   <div className="cause-meta"><span className="goal">Goal <b>PKR 50,000</b></span><span className="goal">Raised PKR 0</span></div>

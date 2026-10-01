@@ -345,7 +345,7 @@ export default function ServiceDetail() {
                           <Image src={img} alt={`Gallery image ${i + 1}`} loading="lazy" style={{
                             width: "100%", height: "100%", objectFit: "cover",
                             transition: "transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)"
-                          }} onMouseOver={(e) = width={800} height={800} /> e.currentTarget.style.transform = "scale(1.1)"}
+                          }} onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.1)"} width={800} height={800} 
                             onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"} />
                         </div>
                       ))}

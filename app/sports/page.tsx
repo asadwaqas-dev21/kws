@@ -272,7 +272,7 @@ export default function Sports() {
                 <div key={player.name} style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
                   <div style={{ height: "160px", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, var(--leaf), var(--pine))" }}>
                     {player.img ? (
-                      <Image src={player.img} alt={player.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = "none"; }} />
+                      <Image src={player.img} alt={player.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} onError={(e) => { e.currentTarget.style.display = "none"; }} width={800} height={800} />
                     ) : (
                       <div style={{ color: "white", fontSize: "2rem", fontWeight: "bold", opacity: 0.8 }}>
                         {player.name.split(" ").map(w => w[0]).join("").substring(0, 2).toUpperCase()}

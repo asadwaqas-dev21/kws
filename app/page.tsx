@@ -131,7 +131,7 @@ export default function Home() {
           </div>
           <div className="hero-art">
             <div className="hero-photo">
-              <Image src="/WhatsApp%20Image%202025-10-23%20at%2011.12.57_f540042f.jpg" alt="KWS community work" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} />
+              <Image src="/WhatsApp%20Image%202025-10-23%20at%2011.12.57_f540042f.jpg" alt="KWS community work" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} width={800} height={800} />
             </div>
             <div className="hero-badge b1">
               <div className="hb-ic g"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 16.3A5 5 0 1 1 12 8a5 5 0 0 1 5 8.3" /><path d="M12 22V12" /></svg></div>
@@ -161,7 +161,7 @@ export default function Home() {
       <section id="about">
         <div className="wrap about-grid">
           <div className="about-photo reveal in">
-            <Image src="/511953349_24746508848284362_7795780151817311534_n.jpg" alt="KWS helping the community" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} />
+            <Image src="/511953349_24746508848284362_7795780151817311534_n.jpg" alt="KWS helping the community" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} width={800} height={800} />
             <div className="about-tag">Compassion in action</div>
           </div>
           <div className="reveal in">
@@ -203,7 +203,7 @@ export default function Home() {
       <section className="founder">
         <div className="wrap founder-grid">
           <div className="founder-photo reveal in">
-            <Image src="/founder.jpg" alt="Hafiz Abdul Ghaffar Kamboh, Founder" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} />
+            <Image src="/founder.jpg" alt="Hafiz Abdul Ghaffar Kamboh, Founder" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} width={800} height={800} />
           </div>
           <div className="reveal in">
             <span className="eyebrow light">Message of the founder</span>
@@ -226,7 +226,7 @@ export default function Home() {
           </div>
           <div className="causes-grid">
             <div className="cause reveal in">
-              <div className="cause-img"><span className="cause-chip">Clean Water</span><Image src="/handpump.jpg" alt="Hand pump" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} /></div>
+              <div className="cause-img"><span className="cause-chip">Clean Water</span><Image src="/handpump.jpg" alt="Hand pump" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} width={800} height={800} /></div>
               <div className="cause-body">
                 <h3>Donate One Hand Pump</h3>
                 <div className="cause-meta"><span className="goal">Goal <b>PKR 55,000</b></span><span className="goal">Raised PKR 0</span></div>
@@ -236,7 +236,7 @@ export default function Home() {
               </div>
             </div>
             <div className="cause reveal in">
-              <div className="cause-img"><span className="cause-chip">Welfare</span><Image src="/welfare.jpg" alt="Monthly rashan" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} /></div>
+              <div className="cause-img"><span className="cause-chip">Welfare</span><Image src="/welfare.jpg" alt="Monthly rashan" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} width={800} height={800} /></div>
               <div className="cause-body">
                 <h3>One Family Monthly Rashan</h3>
                 <div className="cause-meta"><span className="goal">Goal <b>PKR 11,000</b></span><span className="goal">Raised PKR 0</span></div>
@@ -246,7 +246,7 @@ export default function Home() {
               </div>
             </div>
             <div className="cause reveal in">
-              <div className="cause-img"><span className="cause-chip">Welfare</span><Image src="/welfare2.jpg" alt="Sponsor a marriage" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} /></div>
+              <div className="cause-img"><span className="cause-chip">Welfare</span><Image src="/welfare2.jpg" alt="Sponsor a marriage" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} width={800} height={800} /></div>
               <div className="cause-body">
                 <h3>Sponsor One Marriage</h3>
                 <div className="cause-meta"><span className="goal">Goal <b>PKR 50,000</b></span><span className="goal">Raised PKR 0</span></div>
@@ -284,19 +284,19 @@ export default function Home() {
           </div>
           <div className="team-grid">
             <div className="tm reveal in">
-              <div className="tm-img"><Image src="/Muhammad Saleem Ahmad.jpg" alt="Muhammad Saleem Ahmad" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} /></div>
+              <div className="tm-img"><Image src="/Muhammad Saleem Ahmad.jpg" alt="Muhammad Saleem Ahmad" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} width={800} height={800} /></div>
               <div className="tm-body"><div className="tm-role">Co-Founder</div><div className="h3-style" style={{fontSize: "1.25rem", fontWeight: "bold", margin: "10px 0"}}>Muhammad Saleem Ahmad</div>
                 <div className="tm-social"><a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" /></svg></a><a href="#" aria-label="Phone"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg></a></div>
               </div>
             </div>
             <div className="tm reveal in">
-              <div className="tm-img"><Image src="/faisal.jpg" alt="Faisal Naveed" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} /></div>
+              <div className="tm-img"><Image src="/faisal.jpg" alt="Faisal Naveed" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} width={800} height={800} /></div>
               <div className="tm-body"><div className="tm-role">Co-Founder</div><div className="h3-style" style={{fontSize: "1.25rem", fontWeight: "bold", margin: "10px 0"}}>Faisal Naveed</div>
                 <div className="tm-social"><a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" /></svg></a><a href="#" aria-label="Phone"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg></a></div>
               </div>
             </div>
             <div className="tm reveal in">
-              <div className="tm-img"><Image src="/asad.png" alt="Asad Waqas" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} /></div>
+              <div className="tm-img"><Image src="/asad.png" alt="Asad Waqas" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} width={800} height={800} /></div>
               <div className="tm-body"><div className="tm-role">General Secretary</div><div className="h3-style" style={{fontSize: "1.25rem", fontWeight: "bold", margin: "10px 0"}}>Asad Waqas</div>
                 <div className="tm-social"><a href="#" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" /></svg></a><a href="#" aria-label="Phone"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg></a></div>
               </div>

@@ -215,7 +215,7 @@ export default function TeamPage() {
                   {LEADERSHIP[0].img ? (
                     <Image src={LEADERSHIP[0].img} alt={LEADERSHIP[0].name}
                       style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
-                      onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = "none"; }} />
+                      onError={(e) => { e.currentTarget.style.display = "none"; }} width={800} height={800} />
                   ) : <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}><Avatar name={LEADERSHIP[0].name} size={90} /></div>}
                   <div style={{
                     position: "absolute", bottom: 0, left: 0, right: 0,
@@ -243,7 +243,7 @@ export default function TeamPage() {
                     {LEADERSHIP[idx].img ? (
                       <Image src={LEADERSHIP[idx].img} alt={LEADERSHIP[idx].name}
                         style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
-                        onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = "none"; }} />
+                        onError={(e) => { e.currentTarget.style.display = "none"; }} width={800} height={800} />
                     ) : <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}><Avatar name={LEADERSHIP[idx].name} size={60} /></div>}
                     <div style={{
                       position: "absolute", bottom: 0, left: 0, right: 0,
@@ -282,7 +282,7 @@ export default function TeamPage() {
               <div style={{ borderRadius: 26, overflow: "hidden", boxShadow: "var(--shadow-lift)", background: "linear-gradient(135deg, var(--leaf), var(--pine))", aspectRatio: "5/4", position: "relative" }} className="reveal in">
                 <Image src="/511953349_24746508848284362_7795780151817311534_n.jpg" alt="KWS helping the community" loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                  onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = "none"; }} />
+                  onError={(e) => { e.currentTarget.style.display = "none"; }} width={800} height={800} />
                 <div style={{
                   position: "absolute", left: 20, bottom: 20,
                   background: "var(--cream-2)", padding: "12px 18px", borderRadius: 14,
@@ -326,7 +326,7 @@ export default function TeamPage() {
               <div style={{ borderRadius: 24, overflow: "hidden", aspectRatio: "1/1", background: "linear-gradient(135deg, var(--green), var(--pine))", boxShadow: "var(--shadow-lift)" }} className="reveal in">
                 <Image src="/founder.jpg" alt="Hafiz Abdul Ghaffar Kamboh, Founder" loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
-                  onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = "none"; }} />
+                  onError={(e) => { e.currentTarget.style.display = "none"; }} width={800} height={800} />
               </div>
               <div className="reveal in">
                 <span className="eyebrow" style={{ color: "var(--amber)" }}>Message of the founder</span>
@@ -372,7 +372,7 @@ export default function TeamPage() {
                     {leader.img ? (
                       <Image src={leader.img} alt={leader.name}
                         style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
-                        onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = "none"; }} />
+                        onError={(e) => { e.currentTarget.style.display = "none"; }} width={800} height={800} />
                     ) : <Avatar name={leader.name} size={idx === 0 ? 120 : 90} />}
                     {idx === 0 && (
                       <div style={{
@@ -438,7 +438,7 @@ export default function TeamPage() {
                     {m.img ? (
                       <Image src={m.img} alt={m.name} loading="lazy"
                         style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
-                        onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = "none"; }} />
+                        onError={(e) => { e.currentTarget.style.display = "none"; }} width={800} height={800} />
                     ) : <Avatar name={m.name} size={88} />}
                   </div>
                   <div className="tm-body">
