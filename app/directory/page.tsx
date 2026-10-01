@@ -3,6 +3,7 @@
 import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 // Village Directory — sourced from 11-village_directory.xlsx-2026-07-11.csv
 const directoryData = [
@@ -202,7 +203,7 @@ export default function Directory() {
       <header id="header" className={isScrolled ? "scrolled" : ""}>
         <div className="wrap nav">
           <Link href="/" className="brand" aria-label="Khurram Welfare Society home">
-            <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+            <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
             <span className="brand-text">
               <span className="brand-name">Khurram Welfare Society</span>
               <span className="brand-sub">Serving Humanity Since 2012</span>
@@ -335,7 +336,7 @@ export default function Directory() {
           <div className="foot-top">
             <div className="foot-brand">
               <Link href="/" className="brand">
-                <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+                <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
                 <span className="brand-text">
                   <span className="brand-name" style={{ color: '#fff' }}>Khurram Welfare Society</span>
                   <span className="brand-sub">Serving Humanity Since 2012</span>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams, notFound, usePathname } from "next/navigation";
 import { services } from "../data";
 import { SocialShare } from "@/components/SocialShare";
+import Image from "next/image";
 
 function ServiceIcon({ path, size = 32, stroke = "currentColor" }: { path: string; size?: number; stroke?: string }) {
   return (
@@ -74,7 +75,7 @@ export default function ServiceDetail() {
       <header id="header" className={isScrolled ? "scrolled" : ""}>
         <div className="wrap nav">
           <Link href="/" className="brand" aria-label="Khurram Welfare Society home">
-            <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+            <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
             <span className="brand-text">
               <span className="brand-name">Khurram Welfare Society</span>
               <span className="brand-sub">Serving Humanity Since 2012</span>
@@ -341,10 +342,10 @@ export default function ServiceDetail() {
                           background: "var(--cream)",
                           border: "1px solid var(--line)",
                         }}>
-                          <img src={img} alt={`Gallery image ${i + 1}`} loading="lazy" style={{
+                          <Image src={img} alt={`Gallery image ${i + 1}`} loading="lazy" style={{
                             width: "100%", height: "100%", objectFit: "cover",
                             transition: "transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)"
-                          }} onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.1)"}
+                          }} onMouseOver={(e) = width={800} height={800} /> e.currentTarget.style.transform = "scale(1.1)"}
                             onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"} />
                         </div>
                       ))}
@@ -546,7 +547,7 @@ export default function ServiceDetail() {
           <div className="foot-top">
             <div className="foot-brand">
               <Link href="/" className="brand">
-                <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+                <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
                 <span className="brand-text">
                   <span className="brand-name" style={{ color: '#fff' }}>Khurram Welfare Society</span>
                   <span className="brand-sub">Serving Humanity Since 2012</span>

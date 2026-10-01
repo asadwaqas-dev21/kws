@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 type Legend = {
   name: string;
@@ -75,7 +76,7 @@ export default function AchieversPage() {
       <header id="header" className={isScrolled ? "scrolled" : ""}>
         <div className="wrap nav">
           <Link href="/" className="brand" aria-label="Khurram Welfare Society home">
-            <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+            <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
             <span className="brand-text">
               <span className="brand-name">Khurram Welfare Society</span>
               <span className="brand-sub">Serving Humanity Since 2012</span>
@@ -137,7 +138,7 @@ export default function AchieversPage() {
               <div className="legend-split reveal in" key={legend.image}>
                 <div className="ls-left">
                   <div className="ls-image-wrap">
-                    <img src={legend.image} alt={legend.name} />
+                    <Image src={legend.image || "/placeholder.jpg"} alt={legend.name} width={500} height={625} />
                     <div className="ls-deco"></div>
                   </div>
                 </div>
@@ -184,7 +185,7 @@ export default function AchieversPage() {
           <div className="foot-top">
             <div className="foot-brand">
               <Link href="/" className="brand">
-                <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+                <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
                 <span className="brand-text">
                   <span className="brand-name" style={{ color: "#fff" }}>Khurram Welfare Society</span>
                   <span className="brand-sub">Serving Humanity Since 2012</span>

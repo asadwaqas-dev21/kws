@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { services } from "./data";
+import Image from "next/image";
 
 function ServiceIcon({ path, size = 32 }: { path: string; size?: number }) {
   return (
@@ -64,7 +65,7 @@ export default function Services() {
       <header id="header" className={isScrolled ? "scrolled" : ""}>
         <div className="wrap nav">
           <Link href="/" className="brand" aria-label="Khurram Welfare Society home">
-            <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+            <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
             <span className="brand-text">
               <span className="brand-name">Khurram Welfare Society</span>
               <span className="brand-sub">Serving Humanity Since 2012</span>
@@ -393,7 +394,7 @@ export default function Services() {
           <div className="foot-top">
             <div className="foot-brand">
               <Link href="/" className="brand">
-                <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+                <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
                 <span className="brand-text">
                   <span className="brand-name" style={{ color: '#fff' }}>Khurram Welfare Society</span>
                   <span className="brand-sub">Serving Humanity Since 2012</span>

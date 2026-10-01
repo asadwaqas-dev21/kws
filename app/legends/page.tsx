@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 type Legend = {
   name: string;
@@ -15,6 +16,7 @@ type Legend = {
 };
 
 const legends: Legend[] = [
+
   {
     name: "بابا جی حاجی محمد امین صاحب",
     image: "/legends/Baba g Haji Muhammad Ameen Sahib.jpeg",
@@ -25,6 +27,18 @@ const legends: Legend[] = [
     bio: [
       "بابا جی حاجی محمد امین صاحب خرم ہٹھاڑ کی ایک انتہائی نیک اور سخی شخصیت تھے۔ ان کی سخاوت اور فیاضی کی وجہ سے گاؤں کے لوگ انہیں بہت قدر کی نگاہ سے دیکھتے تھے۔",
       "ان کا ہمدردانہ رویہ اور غریب پروری انہیں سب کا عزیز بناتی تھی۔ ان کی نیک یادیں ہمیشہ گاؤں والوں کے دلوں میں زندہ رہیں گی۔",
+    ],
+  },
+  {
+    name: "شاہد اقبال",
+    image: "/legends/Shahid Iqbal.jpeg",
+    role: "ہر دلعزیز نوجوان",
+    village: "خرم ہٹھاڑ",
+    lifespan: "یادگار شخصیت",
+    cast: "معلوم نہیں",
+    bio: [
+      "شاہد اقبال ایک انتہائی خوش اخلاق، ہنس مکھ اور خوش مزاج نوجوان تھے۔ ان کا چہرہ ہمیشہ مسکراہٹ سے سجا رہتا تھا اور وہ ہر کسی سے انتہائی خندہ پیشانی اور خوش مزاجی سے پیش آتے تھے۔",
+      "ان کی ملنساری اور محبت بھرا انداز انہیں سب کا عزیز بناتا تھا۔ ان کی جواں سالی اور مسکراہٹ کی خوبصورت یادیں خرم ہٹھاڑ کے لوگوں کے دلوں میں ہمیشہ زندہ رہیں گی۔",
     ],
   },
   {
@@ -555,7 +569,7 @@ export default function Legends() {
       <header id="header" className={isScrolled ? "scrolled" : ""}>
         <div className="wrap nav">
           <Link href="/" className="brand" aria-label="Khurram Welfare Society home">
-            <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+            <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
             <span className="brand-text">
               <span className="brand-name">Khurram Welfare Society</span>
               <span className="brand-sub">Serving Humanity Since 2012</span>
@@ -570,14 +584,14 @@ export default function Legends() {
                 <svg className="dd-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9" /></svg>
               </button>
               <div className="nav-dropdown-menu">
-                <Link href="/services/clean-water" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(47,143,107,.1)",color:"#2F8F6B"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2s7 7.4 7 12a7 7 0 0 1-14 0c0-4.6 7-12 7-12z"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Clean Water</span><span className="nav-dd-sub">Hand pumps & filtration</span></div></Link>
-                <Link href="/services/education" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(232,163,61,.1)",color:"#CE8A1F"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 10L12 5 2 10l10 5 10-5z"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Education</span><span className="nav-dd-sub">Scholarships & supplies</span></div></Link>
-                <Link href="/services/health" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(232,93,93,.1)",color:"#E85D5D"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Health & Medical</span><span className="nav-dd-sub">Free camps & aid</span></div></Link>
-                <Link href="/services/street-lights" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(206,138,31,.1)",color:"#CE8A1F"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2v6M12 8a4 4 0 0 1 4 4v8H8v-8a4 4 0 0 1 4-4z"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Street Lights</span><span className="nav-dd-sub">43+ lights installed</span></div></Link>
-                <Link href="/services/welfare" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(20,80,60,.1)",color:"#14503C"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Social Welfare</span><span className="nav-dd-sub">Rations & relief</span></div></Link>
-                <Link href="/services/blood-donation" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(192,57,43,.1)",color:"#C0392B"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 3s6 4.5 6 10a6 6 0 0 1-12 0c0-5.5 6-10 6-10z"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Blood Donation</span><span className="nav-dd-sub">Donor network</span></div></Link>
-                <Link href="/services/Muqaddas-boxes" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(142,68,173,.1)",color:"#8E44AD"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M20 8v13H4V8"/><path d="M2 3h20l-2 5H4z"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Muqaddas Boxes</span><span className="nav-dd-sub">Community giving</span></div></Link>
-                <Link href="/services/sports" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{background:"rgba(41,128,185,.1)",color:"#2980B9"}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Sports & Youth</span><span className="nav-dd-sub">Tournaments & events</span></div></Link>
+                <Link href="/services/clean-water" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(47,143,107,.1)", color: "#2F8F6B" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2s7 7.4 7 12a7 7 0 0 1-14 0c0-4.6 7-12 7-12z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Clean Water</span><span className="nav-dd-sub">Hand pumps & filtration</span></div></Link>
+                <Link href="/services/education" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(232,163,61,.1)", color: "#CE8A1F" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 10L12 5 2 10l10 5 10-5z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Education</span><span className="nav-dd-sub">Scholarships & supplies</span></div></Link>
+                <Link href="/services/health" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(232,93,93,.1)", color: "#E85D5D" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Health & Medical</span><span className="nav-dd-sub">Free camps & aid</span></div></Link>
+                <Link href="/services/street-lights" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(206,138,31,.1)", color: "#CE8A1F" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2v6M12 8a4 4 0 0 1 4 4v8H8v-8a4 4 0 0 1 4-4z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Street Lights</span><span className="nav-dd-sub">43+ lights installed</span></div></Link>
+                <Link href="/services/welfare" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(20,80,60,.1)", color: "#14503C" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Social Welfare</span><span className="nav-dd-sub">Rations & relief</span></div></Link>
+                <Link href="/services/blood-donation" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(192,57,43,.1)", color: "#C0392B" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 3s6 4.5 6 10a6 6 0 0 1-12 0c0-5.5 6-10 6-10z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Blood Donation</span><span className="nav-dd-sub">Donor network</span></div></Link>
+                <Link href="/services/Muqaddas-boxes" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(142,68,173,.1)", color: "#8E44AD" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M20 8v13H4V8" /><path d="M2 3h20l-2 5H4z" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Muqaddas Boxes</span><span className="nav-dd-sub">Community giving</span></div></Link>
+                <Link href="/services/sports" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}><div className="nav-dd-icon" style={{ background: "rgba(41,128,185,.1)", color: "#2980B9" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /></svg></div><div className="nav-dd-text"><span className="nav-dd-title">Sports & Youth</span><span className="nav-dd-sub">Tournaments & events</span></div></Link>
                 <div className="nav-dd-sep" />
                 <Link href="/services" className="nav-dd-viewall" onClick={() => { setIsMenuOpen(false); setIsDropdownOpen(false); }}>View All Services →</Link>
               </div>
@@ -617,7 +631,7 @@ export default function Legends() {
               <div className="legend-split reveal in" key={legend.image}>
                 <div className="ls-left">
                   <div className="ls-image-wrap">
-                    <img src={legend.image} alt={legend.name} />
+                    <Image src={legend.image} alt={legend.name} width={500} height={625} />
                     <div className="ls-deco"></div>
                   </div>
                 </div>
@@ -664,7 +678,7 @@ export default function Legends() {
           <div className="foot-top">
             <div className="foot-brand">
               <Link href="/" className="brand">
-                <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+                <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
                 <span className="brand-text">
                   <span className="brand-name" style={{ color: "#fff" }}>Khurram Welfare Society</span>
                   <span className="brand-sub">Serving Humanity Since 2012</span>

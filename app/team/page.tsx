@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const LEADERSHIP = [
   {
@@ -129,7 +130,7 @@ export default function TeamPage() {
       <header id="header" className={isScrolled ? "scrolled" : ""}>
         <div className="wrap nav">
           <Link href="/" className="brand" aria-label="Khurram Welfare Society home">
-            <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+            <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
             <span className="brand-text">
               <span className="brand-name">Khurram Welfare Society</span>
               <span className="brand-sub">Serving Humanity Since 2012</span>
@@ -212,9 +213,9 @@ export default function TeamPage() {
                   minHeight: 320,
                 }}>
                   {LEADERSHIP[0].img ? (
-                    <img src={LEADERSHIP[0].img} alt={LEADERSHIP[0].name}
+                    <Image src={LEADERSHIP[0].img} alt={LEADERSHIP[0].name}
                       style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
-                      onError={(e) => { e.currentTarget.style.display = "none"; }} />
+                      onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = "none"; }} />
                   ) : <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}><Avatar name={LEADERSHIP[0].name} size={90} /></div>}
                   <div style={{
                     position: "absolute", bottom: 0, left: 0, right: 0,
@@ -240,9 +241,9 @@ export default function TeamPage() {
                     minHeight: 150,
                   }}>
                     {LEADERSHIP[idx].img ? (
-                      <img src={LEADERSHIP[idx].img} alt={LEADERSHIP[idx].name}
+                      <Image src={LEADERSHIP[idx].img} alt={LEADERSHIP[idx].name}
                         style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
-                        onError={(e) => { e.currentTarget.style.display = "none"; }} />
+                        onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = "none"; }} />
                     ) : <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}><Avatar name={LEADERSHIP[idx].name} size={60} /></div>}
                     <div style={{
                       position: "absolute", bottom: 0, left: 0, right: 0,
@@ -279,9 +280,9 @@ export default function TeamPage() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }} className="tp-about-grid">
               {/* Photo */}
               <div style={{ borderRadius: 26, overflow: "hidden", boxShadow: "var(--shadow-lift)", background: "linear-gradient(135deg, var(--leaf), var(--pine))", aspectRatio: "5/4", position: "relative" }} className="reveal in">
-                <img src="/511953349_24746508848284362_7795780151817311534_n.jpg" alt="KWS helping the community" loading="lazy"
+                <Image src="/511953349_24746508848284362_7795780151817311534_n.jpg" alt="KWS helping the community" loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                  onError={(e) => { e.currentTarget.style.display = "none"; }} />
+                  onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = "none"; }} />
                 <div style={{
                   position: "absolute", left: 20, bottom: 20,
                   background: "var(--cream-2)", padding: "12px 18px", borderRadius: 14,
@@ -323,9 +324,9 @@ export default function TeamPage() {
           <div className="wrap" style={{ position: "relative" }}>
             <div style={{ display: "grid", gridTemplateColumns: ".85fr 1.15fr", gap: 56, alignItems: "center" }} className="tp-founder-grid">
               <div style={{ borderRadius: 24, overflow: "hidden", aspectRatio: "1/1", background: "linear-gradient(135deg, var(--green), var(--pine))", boxShadow: "var(--shadow-lift)" }} className="reveal in">
-                <img src="/founder.jpg" alt="Hafiz Abdul Ghaffar Kamboh, Founder" loading="lazy"
+                <Image src="/founder.jpg" alt="Hafiz Abdul Ghaffar Kamboh, Founder" loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
-                  onError={(e) => { e.currentTarget.style.display = "none"; }} />
+                  onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = "none"; }} />
               </div>
               <div className="reveal in">
                 <span className="eyebrow" style={{ color: "var(--amber)" }}>Message of the founder</span>
@@ -369,9 +370,9 @@ export default function TeamPage() {
                     display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden",
                   }}>
                     {leader.img ? (
-                      <img src={leader.img} alt={leader.name}
+                      <Image src={leader.img} alt={leader.name}
                         style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
-                        onError={(e) => { e.currentTarget.style.display = "none"; }} />
+                        onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = "none"; }} />
                     ) : <Avatar name={leader.name} size={idx === 0 ? 120 : 90} />}
                     {idx === 0 && (
                       <div style={{
@@ -435,9 +436,9 @@ export default function TeamPage() {
                 <div key={m.name} className="tm" style={{ textAlign: "center" }}>
                   <div className="tm-img" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                     {m.img ? (
-                      <img src={m.img} alt={m.name} loading="lazy"
+                      <Image src={m.img} alt={m.name} loading="lazy"
                         style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
-                        onError={(e) => { e.currentTarget.style.display = "none"; }} />
+                        onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = "none"; }} />
                     ) : <Avatar name={m.name} size={88} />}
                   </div>
                   <div className="tm-body">
@@ -486,7 +487,7 @@ export default function TeamPage() {
           <div className="foot-top">
             <div className="foot-brand">
               <Link href="/" className="brand">
-                <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+                <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
                 <span className="brand-text">
                   <span className="brand-name" style={{ color: "#fff" }}>Khurram Welfare Society</span>
                   <span className="brand-sub">Serving Humanity Since 2012</span>

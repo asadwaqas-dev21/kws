@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const CRICKET_LEGENDS = [
   { name: "Master Muhammad Mudassir", img: "", sport: "Cricket" },
@@ -84,7 +85,7 @@ export default function Sports() {
       <header id="header" className={isScrolled ? "scrolled" : ""}>
         <div className="wrap nav">
           <Link href="/" className="brand" aria-label="Khurram Welfare Society home">
-            <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+            <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
             <span className="brand-text">
               <span className="brand-name">Khurram Welfare Society</span>
               <span className="brand-sub">Serving Humanity Since 2012</span>
@@ -207,7 +208,7 @@ export default function Sports() {
             </div>
             <div style={{ position: "relative" }}>
               <div style={{ background: "var(--cream)", borderRadius: "24px", overflow: "hidden", aspectRatio: "4/3", boxShadow: "var(--shadow-soft)" }}>
-                <img src="/sports.jpg" alt="KWS Sports Event" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <Image src="/sports.jpg" alt="KWS Sports Event" style={{ width: "100%", height: "100%", objectFit: "cover" }} width={800} height={800} />
               </div>
               <div style={{ position: "absolute", bottom: -20, left: -20, background: "var(--green)", color: "#fff", padding: "20px", borderRadius: "16px", boxShadow: "var(--shadow-lift)" }}>
                 <div style={{ fontSize: "1.5rem", fontWeight: "bold" }}>KWS Super League</div>
@@ -271,7 +272,7 @@ export default function Sports() {
                 <div key={player.name} style={{ background: "var(--cream)", borderRadius: "16px", overflow: "hidden", textAlign: "center", boxShadow: "var(--shadow-soft)" }}>
                   <div style={{ height: "160px", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, var(--leaf), var(--pine))" }}>
                     {player.img ? (
-                      <img src={player.img} alt={player.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} onError={(e) => { e.currentTarget.style.display = "none"; }} />
+                      <Image src={player.img} alt={player.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = "none"; }} />
                     ) : (
                       <div style={{ color: "white", fontSize: "2rem", fontWeight: "bold", opacity: 0.8 }}>
                         {player.name.split(" ").map(w => w[0]).join("").substring(0, 2).toUpperCase()}
@@ -305,7 +306,7 @@ export default function Sports() {
           <div className="foot-top">
             <div className="foot-brand">
               <Link href="/" className="brand">
-                <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+                <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
                 <span className="brand-text">
                   <span className="brand-name" style={{ color: '#fff' }}>Khurram Welfare Society</span>
                   <span className="brand-sub">Serving Humanity Since 2012</span>

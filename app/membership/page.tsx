@@ -4,6 +4,7 @@ import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { sendMembershipApplication } from "../actions";
+import Image from "next/image";
 
 export default function Membership() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -62,7 +63,7 @@ export default function Membership() {
       <header id="header" className={isScrolled ? "scrolled" : ""}>
         <div className="wrap nav">
           <Link href="/" className="brand" aria-label="Khurram Welfare Society home">
-            <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+            <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
             <span className="brand-text">
               <span className="brand-name">Khurram Welfare Society</span>
               <span className="brand-sub">Serving Humanity Since 2012</span>
@@ -122,7 +123,7 @@ export default function Membership() {
             {/* Header Section */}
             <div className="mem-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", paddingBottom: "20px", marginBottom: "20px", position: "relative" }}>
               <div style={{ width: 140, padding: 10 }}>
-                <img src="/kws.png" alt="KWS Logo" style={{ width: "100%", filter: "grayscale(100%)", opacity: 0.9 }} />
+                <Image src="/kws.png" alt="KWS Logo" style={{ width: "100%", filter: "grayscale(100%)", opacity: 0.9 }} width={800} height={800} />
               </div>
               <div style={{ textAlign: "center", flex: 1, padding: "0 20px" }}>
                 <h1 className="mem-h1" style={{ fontSize: "3rem", fontWeight: "bold", margin: "0 0 10px 0", letterSpacing: "-1px" }}>خرم ویلفیئر سوسائٹی</h1>
@@ -300,7 +301,7 @@ export default function Membership() {
           <div className="foot-top">
             <div className="foot-brand">
               <Link href="/" className="brand">
-                <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+                <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
                 <span className="brand-text">
                   <span className="brand-name" style={{ color: '#fff' }}>Khurram Welfare Society</span>
                   <span className="brand-sub">Serving Humanity Since 2012</span>

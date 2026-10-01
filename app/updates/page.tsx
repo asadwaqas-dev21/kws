@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function Updates() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,7 +51,7 @@ export default function Updates() {
       <header id="header" className={isScrolled ? "scrolled" : ""}>
         <div className="wrap nav">
           <Link href="/" className="brand" aria-label="Khurram Welfare Society home">
-            <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+            <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
             <span className="brand-text">
               <span className="brand-name">Khurram Welfare Society</span>
               <span className="brand-sub">Serving Humanity Since 2012</span>
@@ -158,7 +159,7 @@ export default function Updates() {
             </div>
             <div className="causes-grid">
               <div className="cause">
-                <div className="cause-img"><span className="cause-chip">Clean Water</span><img src="/handpump.jpg" alt="Hand pump" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} /></div>
+                <div className="cause-img"><span className="cause-chip">Clean Water</span><Image src="/handpump.jpg" alt="Hand pump" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} /></div>
                 <div className="cause-body">
                   <h3>Donate One Hand Pump</h3>
                   <div className="cause-meta"><span className="goal">Goal <b>PKR 55,000</b></span><span className="goal">Raised PKR 0</span></div>
@@ -168,7 +169,7 @@ export default function Updates() {
                 </div>
               </div>
               <div className="cause">
-                <div className="cause-img"><span className="cause-chip">Welfare</span><img src="/welfare.jpg" alt="Monthly rashan" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} /></div>
+                <div className="cause-img"><span className="cause-chip">Welfare</span><Image src="/welfare.jpg" alt="Monthly rashan" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} /></div>
                 <div className="cause-body">
                   <h3>One Family Monthly Rashan</h3>
                   <div className="cause-meta"><span className="goal">Goal <b>PKR 11,000</b></span><span className="goal">Raised PKR 0</span></div>
@@ -178,7 +179,7 @@ export default function Updates() {
                 </div>
               </div>
               <div className="cause">
-                <div className="cause-img"><span className="cause-chip">Welfare</span><img src="/welfare2.jpg" alt="Sponsor a marriage" loading="lazy" referrerPolicy="no-referrer" onError={(e) => { e.currentTarget.style.display = 'none'; }} /></div>
+                <div className="cause-img"><span className="cause-chip">Welfare</span><Image src="/welfare2.jpg" alt="Sponsor a marriage" loading="lazy" referrerPolicy="no-referrer" onError={(e) = width={800} height={800} /> { e.currentTarget.style.display = 'none'; }} /></div>
                 <div className="cause-body">
                   <h3>Sponsor One Marriage</h3>
                   <div className="cause-meta"><span className="goal">Goal <b>PKR 50,000</b></span><span className="goal">Raised PKR 0</span></div>
@@ -198,7 +199,7 @@ export default function Updates() {
           <div className="foot-top">
             <div className="foot-brand">
               <Link href="/" className="brand">
-                <img src="/kws.png" alt="KWS Logo" className="brand-badge" />
+                <Image src="/kws.png" alt="KWS Logo" className="brand-badge" width={800} height={800} />
                 <span className="brand-text">
                   <span className="brand-name" style={{ color: '#fff' }}>Khurram Welfare Society</span>
                   <span className="brand-sub">Serving Humanity Since 2012</span>
